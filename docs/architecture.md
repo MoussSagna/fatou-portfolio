@@ -25,14 +25,14 @@ assets-src/              images sources haute résolution (non bundlées)
 public/fonts/            woff2 self-hostés (Chubbo, Chillax)
 scripts/                 optimize-images.mjs, bitmoji-vector/ (génération du SVG en calques)
 src/
-  animations/            variantes Motion partagées
+  animations/            variantes Motion partagées + Reveal (apparition au scroll)
   assets/images/         images générées (AVIF/WebP, hashées par Vite)
   assets/bitmoji/        bitmoji.svg généré (calques animables)
   components/
     bitmoji/             Bitmoji (image ou SVG en calques, chargé à la demande) + bitmoji.css
     layout/              SiteHeader, MobileTabBar, Logo, SectionShell
     ui/                  primitives (Button shadcn, Eyebrow…)
-  data/                  données statiques (site, navigation, bientôt projects/skills/tools/experience)
+  data/                  données statiques : site, navigation, projects (bientôt skills, tools, experience)
   hooks/                 useActiveSection (scroll-spy)
   lib/                   utils (cn)
   pages/                 HomePage (assemble les sections)

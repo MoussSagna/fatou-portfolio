@@ -12,12 +12,12 @@ export function Eyebrow({ children, withRule = false, className }: EyebrowProps)
   return (
     <p
       className={cn(
-        'flex items-center gap-6 text-eyebrow font-medium text-ink-muted uppercase',
+        'flex items-center gap-4 text-eyebrow font-medium whitespace-nowrap text-ink-muted uppercase sm:gap-6',
         className,
       )}
     >
       {children}
-      {withRule && <span aria-hidden="true" className="h-px w-20 bg-ink-muted/40" />}
+      {withRule && <span aria-hidden="true" className="h-px w-8 bg-ink-muted/40 sm:w-20" />}
     </p>
   )
 }

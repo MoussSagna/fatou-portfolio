@@ -44,7 +44,7 @@ de la maquette (captures dans `comparisons/`).
 | 0      | Initialisation, analyse, outillage                | ✅ Terminé |
 | 1      | Design system, fonts, layout, navigation          | ✅ Terminé |
 | 2      | Hero                                              | ✅ Terminé |
-| 3      | Projets                                           | À faire    |
+| 3      | Projets                                           | ✅ Terminé |
 | 4      | Compétences + logiciels                           | À faire    |
 | 5      | Parcours                                          | À faire    |
 | 6      | Contact + footer                                  | À faire    |

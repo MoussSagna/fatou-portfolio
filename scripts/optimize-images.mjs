@@ -11,7 +11,13 @@ const SOURCE_DIR = new URL('../assets-src/', import.meta.url)
 const OUTPUT_DIR = new URL('../src/assets/images/', import.meta.url)
 
 /** @type {{ name: string, file: string, widths: number[] }[]} */
-const IMAGES = [{ name: 'bitmoji', file: 'bitmoji.png', widths: [768, 1200, 1536] }]
+const IMAGES = [
+  { name: 'bitmoji', file: 'bitmoji.png', widths: [768, 1200, 1536] },
+  // Provisional project visuals cropped from the mockup — replace with HD exports.
+  { name: 'project-poppy', file: 'projects/poppy.png', widths: [434, 868] },
+  { name: 'project-lumiere', file: 'projects/lumiere.png', widths: [434, 868] },
+  { name: 'project-mindful', file: 'projects/mindful.png', widths: [434, 868] },
+]
 
 await mkdir(OUTPUT_DIR, { recursive: true })
 
