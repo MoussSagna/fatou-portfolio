@@ -1,0 +1,10 @@
+{
+  "turdSize": 8,
+  "optTolerance": 0.35,
+  "alphaMax": 1.0,
+  "minShare": 0.015,
+  "hairBaseErode": 2,
+  "prec": 0,
+  "hairOverlap": 10,
+  "highlightMinPx": 12
+}

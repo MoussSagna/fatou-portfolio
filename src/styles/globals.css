@@ -1,0 +1,143 @@
+@import 'tailwindcss';
+@import './fonts.css';
+
+/*
+ * Design tokens — single source of truth. See docs/colors.md & docs/design-system.md.
+ * Brand tokens are raw values; shadcn semantic tokens alias them so any shadcn
+ * component added later inherits the nude palette automatically.
+ */
+:root {
+  /* Brand palette (sampled from the mockup) */
+  --nude-50: #fbefe8; /* lightest nude, section transitions */
+  --nude-100: #f8eee6; /* main background */
+  --nude-200: #f3e4db; /* cards, contact block */
+  --blush: #f0d6ca; /* decorative blobs */
+  --line: #e2d2c8; /* hairlines, outlines */
+  --terracotta: #9e5442; /* accent words, emphasis */
+  --coral: #de7e69; /* logo dot, small decorative strokes */
+  --olive: #4b4a33; /* illustration echo (rare) */
+  --ink: #111111; /* titles, primary buttons */
+  --ink-muted: #4d4845; /* body copy */
+  --white: #ffffff;
+
+  /* shadcn semantic aliases */
+  --background: var(--nude-100);
+  --foreground: var(--ink);
+  --card: var(--nude-200);
+  --card-foreground: var(--ink);
+  --popover: var(--nude-50);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--white);
+  --secondary: var(--nude-200);
+  --secondary-foreground: var(--ink);
+  --muted: var(--nude-200);
+  --muted-foreground: var(--ink-muted);
+  --accent: var(--terracotta);
+  --accent-foreground: var(--white);
+  --destructive: #b3261e;
+  --border: var(--line);
+  --input: var(--line);
+  --ring: var(--terracotta);
+  --radius: 1rem;
+}
+
+@theme inline {
+  /* Colors */
+  --color-nude-50: var(--nude-50);
+  --color-nude-100: var(--nude-100);
+  --color-nude-200: var(--nude-200);
+  --color-blush: var(--blush);
+  --color-line: var(--line);
+  --color-terracotta: var(--terracotta);
+  --color-coral: var(--coral);
+  --color-olive: var(--olive);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Typography */
+  --font-display: 'Chubbo', 'Chillax', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Chillax', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Fluid type scale — reference viewport 1440px (see docs/typography.md) */
+  --text-display: clamp(2.5rem, min(1.6rem + 3.4vw, 7.4svh), 4.75rem);
+  --text-display--line-height: 0.96;
+  --text-display--letter-spacing: -0.015em;
+  --text-h2: clamp(2.25rem, 1.4rem + 3vw, 4rem);
+  --text-h2--line-height: 1;
+  --text-h2--letter-spacing: -0.03em;
+  --text-h3: clamp(1.5rem, 1.2rem + 0.9vw, 2rem);
+  --text-h3--line-height: 1.1;
+  --text-lead: clamp(1rem, min(0.9rem + 0.3vw, 2.3svh), 1.1875rem);
+  --text-lead--line-height: 1.7;
+  --text-eyebrow: 0.8125rem;
+  --text-eyebrow--line-height: 1;
+  --text-eyebrow--letter-spacing: 0.36em;
+
+  /* Radii */
+  --radius-sm: calc(var(--radius) * 0.5);
+  --radius-md: calc(var(--radius) * 0.75);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.5);
+  --radius-2xl: calc(var(--radius) * 2);
+
+  /* Elevation — very soft, warm-tinted */
+  --shadow-soft: 0 1px 2px rgb(94 60 44 / 0.04), 0 12px 32px -12px rgb(94 60 44 / 0.12);
+  --shadow-float: 0 2px 6px rgb(94 60 44 / 0.06), 0 18px 40px -16px rgb(94 60 44 / 0.22);
+
+  /* Easing */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-display font-bold text-ink;
+  }
+  ::selection {
+    @apply bg-terracotta text-white;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-4 outline-terracotta;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@utility container-page {
+  @apply mx-auto w-full max-w-[90rem] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem];
+}

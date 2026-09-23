@@ -1,0 +1,21 @@
+{
+  "blob": 1,
+  "plant": 2,
+  "desk": 3,
+  "books": 4,
+  "laptop": 5,
+  "mug": 6,
+  "hairBack": 7,
+  "shirt": 8,
+  "neck": 9,
+  "hand": 10,
+  "face": 11,
+  "browL": 12,
+  "browR": 13,
+  "eyeL": 14,
+  "eyeR": 15,
+  "nose": 16,
+  "mouth": 17,
+  "hairFront": 18,
+  "hat": 19
+}
