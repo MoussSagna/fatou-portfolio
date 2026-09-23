@@ -81,7 +81,30 @@ layout). Un seul IntersectionObserver est partagé par Motion.
 Les mêmes états s'appliquent au **focus clavier** (`group-focus-within`). Toute la carte est un
 seul lien (lien « étiré » sur le titre) : un seul arrêt de tabulation par projet.
 
+## Compétences
+
+- Colonne texte : un `Reveal`.
+- Tuiles : `Reveal` avec 60 ms d'écart (`TILE_STAGGER`) ; survol CSS : montée 4 px, fond
+  `blush`, icône terracotta (500 ms, easeOutSoft).
+
+## Logiciels — dock
+
+`src/components/tools/ToolsDock.tsx` (Motion : `useMotionValue`, `useTransform`, `useSpring`).
+
+| Réglage          | Valeur                               | Rôle                                         |
+| ---------------- | ------------------------------------ | -------------------------------------------- |
+| `DOCK_RANGE`     | 260 px                               | distance au curseur sur laquelle on magnifie |
+| `DOCK_MAX_SCALE` | 1,35                                 | échelle de l'icône sous le curseur           |
+| `DOCK_LIFT`      | −10 px                               | soulèvement de l'icône sous le curseur       |
+| `DOCK_SPRING`    | raideur 320, amorti 24, masse 0,35   | suivi souple, sans rebond excessif           |
+| Entrée           | ressort (380 / 17), +70 ms par icône | « pop » en cascade                           |
+
+- La magnification n'est activée que si `(hover: hover) and (pointer: fine)` et sans mouvement
+  réduit : aucun écouteur `mousemove` sur mobile.
+- Les icônes s'agrandissent par `transform` depuis leur base (`originY: 1`) : pas de recalcul de
+  layout, les voisines ne sont pas poussées.
+- La position du curseur est une `MotionValue` : aucun re-render React pendant le survol.
+
 ## Prévu
 
-Sections suivantes : réutiliser `SectionShell` et `Reveal` (compétences, logiciels, parcours,
-contact).
+Sections suivantes : réutiliser `SectionShell`, `SectionHeader` et `Reveal` (parcours, contact).

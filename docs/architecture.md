@@ -32,8 +32,8 @@ src/
     bitmoji/             Bitmoji (image ou SVG en calques, chargé à la demande) + bitmoji.css
     layout/              SiteHeader, MobileTabBar, Logo, SectionShell
     ui/                  primitives (Button shadcn, Eyebrow…)
-  data/                  données statiques : site, navigation, projects (bientôt skills, tools, experience)
-  hooks/                 useActiveSection (scroll-spy)
+  data/                  données statiques : site, navigation, projects, skills, tools (bientôt experience)
+  hooks/                 useActiveSection (scroll-spy), useMediaQuery
   lib/                   utils (cn)
   pages/                 HomePage (assemble les sections)
   sections/              une section = un fichier (Hero, Projects, Skills, Experience, Contact)

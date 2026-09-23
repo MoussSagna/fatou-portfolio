@@ -22,7 +22,7 @@ et ajouter un `@font-face`. Fallbacks : Chubbo → Chillax → system-ui.
 | Token          | Min → Max  | Interligne | Approche  | Usage               |
 | -------------- | ---------- | ---------- | --------- | ------------------- |
 | `text-display` | 40 → 76 px | 0,96       | −0,015 em | Titre du hero       |
-| `text-h2`      | 36 → 64 px | 1          | −0,03 em  | Titres de section   |
+| `text-h2`      | 36 → 72 px | 1          | −0,03 em  | Titres de section   |
 | `text-h3`      | 24 → 32 px | 1,1        | —         | Titres de cartes    |
 | `text-lead`    | 16 → 19 px | 1,7        | —         | Paragraphes d'intro |
 | `text-eyebrow` | 13 px      | 1          | 0,36 em   | Labels en capitales |
