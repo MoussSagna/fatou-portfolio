@@ -15,7 +15,7 @@ export function ExperienceSection() {
           <h2 className="text-h2">
             Un parcours
             <br />
-            <span className="whitespace-nowrap">
+            <span className="xl:whitespace-nowrap">
               tourné vers <span className="text-terracotta">l’impact.</span>
             </span>
           </h2>

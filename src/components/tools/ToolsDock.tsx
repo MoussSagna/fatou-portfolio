@@ -47,7 +47,7 @@ export function ToolsDock({ tools }: ToolsDockProps) {
   return (
     <motion.ul
       aria-label="Logiciels maîtrisés"
-      className="grid grid-cols-4 gap-x-4 gap-y-8 sm:gap-x-8 md:grid-cols-8 md:gap-x-2 lg:flex lg:items-end lg:justify-between lg:px-4"
+      className="grid grid-cols-[repeat(auto-fit,minmax(4.5rem,1fr))] gap-x-3 gap-y-8 sm:grid-cols-4 sm:gap-x-8 md:grid-cols-8 md:gap-x-2 lg:flex lg:items-end lg:justify-between lg:px-4"
       initial={reduceMotion ? false : 'hidden'}
       whileInView="visible"
       viewport={{ once: true, margin: '0px 0px -10% 0px' }}

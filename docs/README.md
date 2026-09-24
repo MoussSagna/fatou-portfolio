@@ -1,6 +1,6 @@
-# Documentation — Portfolio Sarah, UI/UX Designer
+# Documentation — Portfolio Fatou, UI/UX Designer
 
-Portfolio one-page, frontend uniquement (pas de backend, BDD, auth ni admin pour l'instant).
+Portfolio (landing one-page + pages projet), frontend uniquement (pas de backend, BDD, auth ni admin pour l'instant).
 
 ## Démarrer
 
@@ -27,6 +27,7 @@ npm run bitmoji:vector  # régénère le bitmoji SVG en calques
 | [accessibility.md](accessibility.md)                 | Règles a11y                                   |
 | [bitmoji.md](bitmoji.md)                             | Intégration et animations du bitmoji          |
 | [tools.md](tools.md)                                 | Logos des logiciels : sources, marques, ajout |
+| [project-pages.md](project-pages.md)                 | Pages projet : routing, données, composants   |
 | [sprints/](sprints/)                                 | Comptes rendus de sprint                      |
 | [comparisons/](comparisons/)                         | Captures maquette ↔ rendu                     |
 
@@ -40,13 +41,15 @@ de la maquette (captures dans `comparisons/`).
 
 ## Roadmap
 
-| Sprint | Contenu                                           | Statut     |
-| ------ | ------------------------------------------------- | ---------- |
-| 0      | Initialisation, analyse, outillage                | ✅ Terminé |
-| 1      | Design system, fonts, layout, navigation          | ✅ Terminé |
-| 2      | Hero                                              | ✅ Terminé |
-| 3      | Projets                                           | ✅ Terminé |
-| 4      | Compétences + logiciels                           | ✅ Terminé |
-| 5      | Parcours                                          | ✅ Terminé |
-| 6      | Contact + footer                                  | À faire    |
-| 7      | Responsive, animations, polish, a11y, performance | À faire    |
+| Sprint | Contenu                                    | Statut        |
+| ------ | ------------------------------------------ | ------------- |
+| 0      | Initialisation, analyse, outillage         | ✅ Terminé    |
+| 1      | Design system, fonts, layout, navigation   | ✅ Terminé    |
+| 2      | Hero                                       | ✅ Terminé    |
+| 3      | Projets                                    | ✅ Terminé    |
+| 4      | Compétences + logiciels                    | ✅ Terminé    |
+| 5      | Parcours                                   | ✅ Terminé    |
+| 6      | Contact + footer                           | ✅ Terminé    |
+| 7      | Page projet Poppy (template études de cas) | ✅ Terminé    |
+| 8      | Responsive mobile (tout le site)           | ⏳ Validation |
+| 9      | Animations, polish, a11y, performance      | À faire       |

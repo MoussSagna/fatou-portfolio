@@ -1,4 +1,4 @@
-# Sarah — Portfolio UI/UX Designer
+# Fatou — Portfolio UI/UX Designer
 
 Portfolio one-page en React + Vite + TypeScript + Tailwind CSS + shadcn/ui + Motion.
 

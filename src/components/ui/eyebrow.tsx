@@ -7,12 +7,15 @@ interface EyebrowProps {
   className?: string
 }
 
-/** Small letter-spaced uppercase label above titles ("UI/UX DESIGNER", "PROJETS SÉLECTIONNÉS"…). */
+/**
+ * Small letter-spaced uppercase label above titles ("UI/UX DESIGNER", "PROJETS SÉLECTIONNÉS"…).
+ * On narrow screens the hairline shrinks first; the label never wraps.
+ */
 export function Eyebrow({ children, withRule = false, className }: EyebrowProps) {
   return (
     <p
       className={cn(
-        'flex items-center gap-4 text-eyebrow font-medium whitespace-nowrap text-ink-muted uppercase sm:gap-6',
+        'flex min-w-0 items-center gap-4 text-eyebrow font-medium whitespace-nowrap text-ink-muted uppercase sm:gap-6',
         className,
       )}
     >

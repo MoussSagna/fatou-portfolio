@@ -50,9 +50,9 @@ export function HeroSection() {
 
           <motion.div
             variants={fadeUp}
-            className="mt-7 flex flex-wrap items-center gap-x-4 gap-y-4 sm:gap-x-8 lg:mt-8"
+            className="mt-7 flex flex-wrap items-center gap-x-4 gap-y-4 sm:gap-x-8 lg:mt-8 lg:gap-x-5 xl:gap-x-8"
           >
-            <Button asChild className="px-5 text-sm sm:h-14 sm:px-8 sm:text-base">
+            <Button asChild className="px-5 text-sm sm:h-14 sm:px-8 sm:text-base lg:px-6 xl:px-8">
               <a href="#projets">
                 Voir mes projets
                 <ArrowUpRight className="transition-transform duration-300 group-hover/button:translate-x-0.5 group-hover/button:-translate-y-0.5" />

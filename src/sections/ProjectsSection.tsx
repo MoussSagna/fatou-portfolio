@@ -16,7 +16,7 @@ export function ProjectsSection() {
       action={
         <a
           href={allProjectsHref}
-          className="group inline-flex items-center gap-2.5 rounded-sm text-[0.9375rem] font-semibold text-ink lg:text-[1.1875rem]"
+          className="group touch-hit inline-flex items-center gap-2.5 rounded-sm text-[0.9375rem] font-semibold text-ink lg:text-[1.1875rem]"
         >
           <span className="bg-[linear-gradient(currentColor,currentColor)] bg-[length:100%_1px] bg-bottom-left bg-no-repeat pb-1 transition-[background-size] duration-500 ease-(--ease-out-soft) group-hover:bg-[length:0%_1px] group-hover:bg-right-bottom">
             Voir tous les projets

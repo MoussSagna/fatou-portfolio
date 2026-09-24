@@ -11,7 +11,12 @@
 - Illustration avec texte alternatif descriptif.
 - Onglet actif de la tab bar : `aria-current="location"`.
 - `prefers-reduced-motion` respecté (voir [animations.md](animations.md)).
-- Zones tactiles de la tab bar ≥ 44 px de haut.
+- Zones tactiles ≥ 44 × 44 px : tab bar, boutons, liens du footer ; petits liens inline agrandis
+  par l'utilitaire `touch-hit` (voir [responsive.md](responsive.md#tactile)).
+- Liens sociaux : icône seule avec `aria-label` précisant « (nouvel onglet) », `rel="noreferrer"`.
+- Frise du parcours : `<ol>`, dates en `<time>`, « poste actuel » annoncé aux lecteurs d'écran.
+- Liste des logiciels nommée (`aria-label`), logos en `alt=""` car le nom est affiché.
+- Cartes projet : un seul lien par carte (lien étiré), focus visible sur toute la carte.
 
 ## À faire
 

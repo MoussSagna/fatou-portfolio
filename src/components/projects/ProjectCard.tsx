@@ -1,4 +1,5 @@
 import { ArrowUpRight } from 'lucide-react'
+import { Link } from 'react-router'
 import { Eyebrow } from '@/components/ui/eyebrow'
 import type { Project } from '@/types/project'
 
@@ -36,12 +37,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <Eyebrow className="text-[0.6875rem] tracking-[0.28em]">{category}</Eyebrow>
           <h3 className="mt-3 text-h3 lg:mt-4">
             {/* Stretched link: the whole card is clickable. */}
-            <a
-              href={href}
+            <Link
+              to={href}
               className="rounded-sm after:absolute after:inset-0 after:rounded-2xl focus-visible:outline-none focus-visible:after:outline-2 focus-visible:after:outline-offset-4 focus-visible:after:outline-terracotta"
             >
               {title}
-            </a>
+            </Link>
           </h3>
           <p className="mt-2 max-w-[15rem] text-base leading-relaxed text-ink-muted lg:text-[1.1875rem]">
             {description}

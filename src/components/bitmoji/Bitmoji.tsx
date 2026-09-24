@@ -13,7 +13,7 @@ const BitmojiVector = lazy(() => import('./BitmojiVector'))
 const BITMOJI_SIZE = { width: 1536, height: 1024 } as const
 
 const ALT =
-  'Illustration de Sarah, chapeau vert olive et chemise blanche, souriante devant son ordinateur portable, avec une tasse « Good design, brighter tomorrows », une plante et des livres UI/UX, Brand, Strategy, Product.'
+  'Illustration de Fatou, chapeau vert olive et chemise blanche, souriante devant son ordinateur portable, avec une tasse « Good design, brighter tomorrows », une plante et des livres UI/UX, Brand, Strategy, Product.'
 
 interface BitmojiProps {
   /**
@@ -28,7 +28,7 @@ interface BitmojiProps {
   className?: string
 }
 
-/** Sarah's illustrated avatar. Keeps a fixed 3:2 box whatever the variant. */
+/** Fatou's illustrated avatar. Keeps a fixed 3:2 box whatever the variant. */
 export function Bitmoji({
   variant = 'image',
   animated = false,

@@ -42,7 +42,7 @@ export const projects: Project[] = [
       [poppy868Avif, poppy868Webp],
       "Deux écrans de l'application Poppy : inscription et catalogue de films.",
     ),
-    href: '#projets',
+    href: '/projects/poppy',
   },
   {
     slug: 'lumiere',

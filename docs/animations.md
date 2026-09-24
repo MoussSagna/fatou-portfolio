@@ -118,6 +118,17 @@ seul lien (lien « étiré » sur le titre) : un seul arrêt de tabulation par p
   largeur s'anime (0,9 s puis 1 s, courbe « écriture » `[0.45, 0.05, 0.4, 1]`), puis le cœur
   en `pathLength` (0,6 s).
 
+## Contact & footer
+
+- Carte contact et footer : `Reveal`.
+- `Sparkles` (`components/decor/Sparkles.tsx`) : 3 traits en `pathLength` (0,35 s chacun,
+  décalés de 0,1 s, départ à 0,45 s), une seule fois.
+- Icônes sociales : couleur terracotta + montée de 2 px au survol (CSS, 300 ms).
+
+## Pages projet
+
+Voir [project-pages.md](project-pages.md#animations).
+
 ## Prévu
 
-Sprint 6 : contact et footer, avec `SectionShell`, `SectionHeader` et `Reveal`.
+Sprint 8 : passe globale responsive, animations, accessibilité et performance.

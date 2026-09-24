@@ -9,14 +9,14 @@
 | Tailwind CSS 4                  | Styles ; tokens dans `src/styles/globals.css` (`@theme`)                  |
 | shadcn/ui (base Radix)          | Primitives accessibles, copiées dans `src/components/ui`                  |
 | Motion (`motion/react`)         | Animations. C'est le nouveau nom officiel de **Framer Motion** (même API) |
+| react-router                    | Routes Home / pages projet                                                |
 | lucide-react                    | Icônes ligne (cohérentes avec la maquette, utilisées par shadcn)          |
 | `cn` + class-variance-authority | Fusion de classes Tailwind (remplace clsx + tailwind-merge) et variantes  |
 | oxlint + Prettier               | Lint et formatage (plugin Tailwind pour trier les classes)                |
 | sharp (dev)                     | Script d'optimisation des images                                          |
 | potrace + svgo (dev)            | Génération du bitmoji vectoriel (`scripts/bitmoji-vector/`)               |
 
-Pas de routeur pour l'instant : page unique avec ancres. Quand des pages de détail projet
-arriveront, ajouter `react-router` et déplacer `HomePage` sous une route.
+Routing : `react-router` v7 (`/` et `/projects/:slug`), voir [project-pages.md](project-pages.md).
 
 ## Arborescence
 
@@ -30,12 +30,14 @@ src/
   assets/bitmoji/        bitmoji.svg généré (calques animables)
   components/
     bitmoji/             Bitmoji (image ou SVG en calques, chargé à la demande) + bitmoji.css
-    layout/              SiteHeader, MobileTabBar, Logo, SectionShell
+    layout/              SiteHeader, MobileTabBar, Logo, SectionShell, SiteFooter, ScrollManager
+    projects/            ProjectCard + composants des pages projet
     ui/                  primitives (Button shadcn, Eyebrow…)
   data/                  données statiques : site, navigation, projects, skills, tools, experience
+  data/case-studies/     contenu des pages projet (un fichier par projet)
   hooks/                 useActiveSection (scroll-spy), useMediaQuery
   lib/                   utils (cn)
-  pages/                 HomePage (assemble les sections)
+  pages/                 HomePage (assemble les sections), ProjectPage (template étude de cas)
   sections/              une section = un fichier (Hero, Projects, Skills, Experience, Contact)
   styles/                globals.css (tokens), fonts.css
   types/                 types partagés

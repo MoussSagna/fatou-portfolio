@@ -17,7 +17,7 @@ toutes les mesures ci-dessous sont projetées sur un viewport de référence de 
 
 Structure verticale de la page (ordre) :
 
-1. **Header** — logo `SARAH•` + rôle, 5 liens centrés, CTA pilule noir « Discutons ↗ ».
+1. **Header** — logo `SARAH•` (le site utilise « Fatou », le vrai prénom) + rôle, 5 liens centrés, CTA pilule noir « Discutons ↗ ».
 2. **Hero** — eyebrow, titre sur 3 lignes (3ᵉ en terracotta), paragraphe, CTA « Voir mes projets »,
    CTA vidéo (cercle play + « 1 MIN »), indicateur « SCROLL » à gauche, illustration à droite.
 3. **Projets sélectionnés** — eyebrow + filet, lien « Voir tous les projets ↗ », 3 cartes (image

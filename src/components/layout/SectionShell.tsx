@@ -18,7 +18,10 @@ export function SectionHeader({ eyebrow, action, className }: SectionHeaderProps
       className={cn('flex flex-wrap items-center justify-between gap-x-8 gap-y-4', className)}
     >
       {/* Section headers are larger and darker than the hero eyebrow (mockup). */}
-      <Eyebrow withRule className="font-semibold text-ink lg:text-[0.9375rem]">
+      <Eyebrow
+        withRule
+        className="font-semibold text-ink max-sm:tracking-[0.3em] lg:text-[0.9375rem]"
+      >
         {eyebrow}
       </Eyebrow>
       {action}
