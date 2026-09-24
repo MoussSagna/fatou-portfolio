@@ -47,6 +47,6 @@ de la maquette (captures dans `comparisons/`).
 | 2      | Hero                                              | ✅ Terminé |
 | 3      | Projets                                           | ✅ Terminé |
 | 4      | Compétences + logiciels                           | ✅ Terminé |
-| 5      | Parcours                                          | À faire    |
+| 5      | Parcours                                          | ✅ Terminé |
 | 6      | Contact + footer                                  | À faire    |
 | 7      | Responsive, animations, polish, a11y, performance | À faire    |

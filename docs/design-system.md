@@ -22,20 +22,22 @@ La maquette est presque plate : préférer les aplats `nude-200` aux ombres.
 
 ## Composants disponibles
 
-| Composant       | Fichier                               | Notes                                                                                                                                        |
-| --------------- | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Button`        | `components/ui/button.tsx`            | shadcn re-skinné : `default` (encre → terracotta au survol), `outline`, `ghost` ; tailles `default`, `lg`, `icon` ; `asChild` pour les liens |
-| `Eyebrow`       | `components/ui/eyebrow.tsx`           | Label capitales espacées, option `withRule` (filet)                                                                                          |
-| `Logo`          | `components/layout/Logo.tsx`          | `SARAH•` + rôle                                                                                                                              |
-| `SiteHeader`    | `components/layout/SiteHeader.tsx`    | Liens visibles à partir de `lg`                                                                                                              |
-| `MobileTabBar`  | `components/layout/MobileTabBar.tsx`  | Tab bar sticky < `lg`                                                                                                                        |
-| `SectionShell`  | `components/layout/SectionShell.tsx`  | Cadre commun des sections : ancre, en-tête révélé au scroll (eyebrow 15 px semi-gras + filet), `action` optionnelle à droite                 |
-| `ProjectCard`   | `components/projects/ProjectCard.tsx` | Carte projet, entièrement cliquable ; données `data/projects.ts`                                                                             |
-| `Reveal`        | `animations/Reveal.tsx`               | Apparition au scroll — voir [animations.md](animations.md)                                                                                   |
-| `SectionHeader` | `components/layout/SectionShell.tsx`  | En-tête de section seul (eyebrow + filet + action), pour les sous-blocs                                                                      |
-| `SkillTile`     | `components/skills/SkillTile.tsx`     | Tuile compétence ; données `data/skills.ts`                                                                                                  |
-| `ToolsDock`     | `components/tools/ToolsDock.tsx`      | Rangée de logiciels, effet dock ; données `data/tools.ts`                                                                                    |
-| `Bitmoji`       | `components/bitmoji/Bitmoji.tsx`      | `variant="image" \| "vector"`, `animated` — voir [bitmoji.md](bitmoji.md)                                                                    |
+| Composant         | Fichier                                | Notes                                                                                                                                        |
+| ----------------- | -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Button`          | `components/ui/button.tsx`             | shadcn re-skinné : `default` (encre → terracotta au survol), `outline`, `ghost` ; tailles `default`, `lg`, `icon` ; `asChild` pour les liens |
+| `Eyebrow`         | `components/ui/eyebrow.tsx`            | Label capitales espacées, option `withRule` (filet)                                                                                          |
+| `Logo`            | `components/layout/Logo.tsx`           | `SARAH•` + rôle                                                                                                                              |
+| `SiteHeader`      | `components/layout/SiteHeader.tsx`     | Liens visibles à partir de `lg`                                                                                                              |
+| `MobileTabBar`    | `components/layout/MobileTabBar.tsx`   | Tab bar sticky < `lg`                                                                                                                        |
+| `SectionShell`    | `components/layout/SectionShell.tsx`   | Cadre commun des sections : ancre, en-tête révélé au scroll (eyebrow 15 px semi-gras + filet), `action` optionnelle à droite                 |
+| `ProjectCard`     | `components/projects/ProjectCard.tsx`  | Carte projet, entièrement cliquable ; données `data/projects.ts`                                                                             |
+| `Reveal`          | `animations/Reveal.tsx`                | Apparition au scroll — voir [animations.md](animations.md)                                                                                   |
+| `SectionHeader`   | `components/layout/SectionShell.tsx`   | En-tête de section seul (eyebrow + filet + action), pour les sous-blocs                                                                      |
+| `SkillTile`       | `components/skills/SkillTile.tsx`      | Tuile compétence ; données `data/skills.ts`                                                                                                  |
+| `ToolsDock`       | `components/tools/ToolsDock.tsx`       | Rangée de logiciels, effet dock ; données `data/tools.ts`                                                                                    |
+| `Timeline`        | `components/experience/Timeline.tsx`   | Frise du parcours ; données `data/experience.ts`                                                                                             |
+| `HandwrittenNote` | `components/decor/HandwrittenNote.tsx` | Note manuscrite animée (tracés SVG dans `assets/notes/`)                                                                                     |
+| `Bitmoji`         | `components/bitmoji/Bitmoji.tsx`       | `variant="image" \| "vector"`, `animated` — voir [bitmoji.md](bitmoji.md)                                                                    |
 
 ## Règles
 

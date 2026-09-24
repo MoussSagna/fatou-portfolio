@@ -32,6 +32,13 @@ et ajouter un `@font-face`. Fallbacks : Chubbo → Chillax → system-ui.
 
 `text-h2` et `text-h3` seront recalibrés sur la maquette dans leurs sprints respectifs.
 
+## Écriture manuscrite
+
+La note « Same goal / Bigger impact » utilise **Dawning of a New Day** (Google Fonts, OFL),
+convertie en tracés SVG (`src/assets/notes/*.svg`, ≈ 8 Ko) : aucune police n'est chargée.
+Pour changer le texte, régénérer les tracés avec opentype.js (taille 40, lignes décalées de
+34 px) puis passer SVGO.
+
 ## Écart connu avec la maquette
 
 La maquette utilise une sans géométrique grasse pour les titres. **Chubbo** a un dessin

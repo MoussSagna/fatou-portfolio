@@ -105,6 +105,19 @@ seul lien (lien « étiré » sur le titre) : un seul arrêt de tabulation par p
   layout, les voisines ne sont pas poussées.
 - La position du curseur est une `MotionValue` : aucun re-render React pendant le survol.
 
+## Parcours
+
+`components/experience/Timeline.tsx` et `components/decor/HandwrittenNote.tsx`.
+
+- Chaque étape (`<li>`) a son propre `whileInView` : pastille en ressort (320 / 20), trait
+  horizontal `scaleX` 0,45 s, segment `pathLength` 0,9 s (délai 0,25 s), texte en fondu +
+  glissement de 16 px.
+- Pas de `vector-effect: non-scaling-stroke` sur les tracés animés en `pathLength` : il fausse
+  le calcul des tirets. Le segment n'est étiré que verticalement, donc le trait reste net.
+- Note manuscrite : chaque ligne est un `<image>` SVG découvert par un `clipPath` dont la
+  largeur s'anime (0,9 s puis 1 s, courbe « écriture » `[0.45, 0.05, 0.4, 1]`), puis le cœur
+  en `pathLength` (0,6 s).
+
 ## Prévu
 
-Sections suivantes : réutiliser `SectionShell`, `SectionHeader` et `Reveal` (parcours, contact).
+Sprint 6 : contact et footer, avec `SectionShell`, `SectionHeader` et `Reveal`.
