@@ -1,5 +1,5 @@
 import { motion } from 'motion/react'
-import { ArrowDown, ArrowUpRight, Play } from 'lucide-react'
+import { ArrowDown, ArrowUpRight } from 'lucide-react'
 import { easeOutSoft, fadeUp, stagger } from '@/animations/variants'
 import { Bitmoji } from '@/components/bitmoji/Bitmoji'
 import { Button } from '@/components/ui/button'
@@ -58,25 +58,7 @@ export function HeroSection() {
                 <ArrowUpRight className="transition-transform duration-300 group-hover/button:translate-x-0.5 group-hover/button:-translate-y-0.5" />
               </a>
             </Button>
-
-            <a
-              href={site.introVideo.url}
-              className="group flex items-center gap-3 rounded-full sm:gap-4"
-            >
-              <span className="grid size-11 place-items-center rounded-full border-[1.5px] border-ink/80 transition-colors duration-300 group-hover:bg-ink group-hover:text-white sm:size-14">
-                <Play className="size-4 translate-x-px fill-current" aria-hidden="true" />
-              </span>
-              <span className="flex flex-col gap-1">
-                <span className="text-sm font-semibold text-ink sm:text-[1.0625rem]">
-                  Voir la vidéo
-                </span>
-                <span className="text-[0.625rem] font-medium tracking-[0.2em] text-ink-muted uppercase">
-                  {site.introVideo.duration}
-                </span>
-              </span>
-            </a>
           </motion.div>
-
           <motion.a
             variants={fadeUp}
             href="#projets"

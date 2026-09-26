@@ -10,6 +10,7 @@ import poppy434Avif from '@/assets/images/project-poppy-434.avif'
 import poppy434Webp from '@/assets/images/project-poppy-434.webp'
 import poppy868Avif from '@/assets/images/project-poppy-868.avif'
 import poppy868Webp from '@/assets/images/project-poppy-868.webp'
+import { responsiveImage } from '@/lib/responsive-image'
 import type { Project, ResponsiveImage } from '@/types/project'
 
 /** Source artwork size (assets-src/projects/*.png). */
@@ -67,6 +68,19 @@ export const projects: Project[] = [
       "Deux écrans de l'application Mindful : objectifs du jour et accueil « Good Morning ».",
     ),
     href: '#projets',
+  },
+  {
+    slug: 'exmed',
+    title: 'EXMED DA OPO PHONO',
+    category: 'UI & UX Design',
+    description: 'Refonte et création de logo',
+    image: responsiveImage(
+      'project-exmed',
+      [434, 868],
+      VISUAL,
+      'Accueil de DA OPO PHONO : cartes des applications DA OPO PHONO et CONTRAT PHONO sur fond violet.',
+    ),
+    href: '/projects/exmed',
   },
 ]
 

@@ -6,7 +6,7 @@ import { ProjectMedia } from './ProjectMedia'
 
 interface ProjectStoryProps {
   chapter: StoryChapter
-  number: number
+  number?: number
   /** Media on the right (text left). Chapters alternate. */
   mediaRight?: boolean
 }

@@ -36,7 +36,7 @@ src/
   data/                  données statiques : site, navigation, projects, skills, tools, experience
   data/case-studies/     contenu des pages projet (un fichier par projet)
   hooks/                 useActiveSection (scroll-spy), useMediaQuery
-  lib/                   utils (cn)
+  lib/                   utils (cn), responsive-image (srcset depuis les images générées)
   pages/                 HomePage (assemble les sections), ProjectPage (template étude de cas)
   sections/              une section = un fichier (Hero, Projects, Skills, Experience, Contact)
   styles/                globals.css (tokens), fonts.css

@@ -56,6 +56,7 @@ Parcours, Contact. Le header garde le logo et « Discutons » (hauteur 80 px).
 | Footer          | Empilé (liens de 44 px de haut) ; entre `lg` et `xl` sur 2 rangées, 1 seule dès `xl`                            |
 | Page projet     | Texte puis visuel pour chaque chapitre ; titre 44 → 68 px sous `sm` (tient jusqu'à « MINDFUL » à 320 px)        |
 | Outils (projet) | 3 colonnes, une ligne dès `sm` ; tuiles 96 px entre `lg` et `xl`                                                |
+| Page EXMED      | Voir [project-pages.md](project-pages.md#responsive-1) : hero portrait < `sm`, infos 2 × 2, une colonne         |
 
 ## Hero « above the fold »
 

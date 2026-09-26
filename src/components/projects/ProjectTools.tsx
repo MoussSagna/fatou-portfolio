@@ -1,16 +1,20 @@
 import { Reveal } from '@/animations/Reveal'
-import { tools as allTools } from '@/data/tools'
-import type { CaseStudy } from '@/types/project'
+import { allTools } from '@/data/tools'
+import type { Tool } from '@/types/skills'
+import type { ToolsChapter } from '@/types/project'
+import { cn } from '@/lib/utils'
 import { ProjectHeading } from './ProjectHeading'
 
 interface ProjectToolsProps {
-  tools: CaseStudy['tools']
-  number: number
+  tools: ToolsChapter
+  number?: number
 }
 
-/** Official logos on soft tiles, next to the chapter title. */
+/** Official logos on soft tiles (in the chapter's order), with an optional role under each name. */
 export function ProjectTools({ tools, number }: ProjectToolsProps) {
-  const used = allTools.filter((tool) => tools.toolIds.includes(tool.id))
+  const used = tools.toolIds
+    .map((id) => allTools.find((tool) => tool.id === id))
+    .filter((tool): tool is Tool => tool !== undefined)
 
   return (
     <section
@@ -22,7 +26,15 @@ export function ProjectTools({ tools, number }: ProjectToolsProps) {
         <ProjectHeading number={number} chapter={tools} titleId="chapitre-outils" />
       </Reveal>
 
-      <ul className="grid grid-cols-3 gap-x-4 gap-y-8 sm:flex sm:justify-between lg:gap-x-2 xl:gap-x-4">
+      <ul
+        className={cn(
+          'grid grid-cols-3 gap-x-4 gap-y-8 sm:flex',
+          // A short list is grouped instead of spread across the column.
+          used.length < 4
+            ? 'sm:justify-start sm:gap-x-12 lg:gap-x-16'
+            : 'sm:justify-between lg:gap-x-2 xl:gap-x-4',
+        )}
+      >
         {used.map((tool, index) => (
           <li key={tool.id}>
             <Reveal delay={index * 0.07} className="flex flex-col items-center gap-3 lg:gap-4">
@@ -40,6 +52,11 @@ export function ProjectTools({ tools, number }: ProjectToolsProps) {
               <span className="text-[0.8125rem] text-ink-muted lg:text-[0.9375rem]">
                 {tool.name}
               </span>
+              {tools.notes?.[tool.id] && (
+                <span className="-mt-1.5 max-w-[9rem] text-center text-xs leading-snug text-balance text-ink-muted/80 lg:-mt-2 lg:text-[0.8125rem]">
+                  {tools.notes[tool.id]}
+                </span>
+              )}
             </Reveal>
           </li>
         ))}

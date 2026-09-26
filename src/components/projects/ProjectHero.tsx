@@ -3,11 +3,11 @@ import { ArrowLeft } from 'lucide-react'
 import { Link } from 'react-router'
 import { easeOutSoft, fadeUp, stagger } from '@/animations/variants'
 import { Blob } from '@/components/decor/Blob'
-import type { CaseStudy, Project } from '@/types/project'
+import type { Project, SplitHero } from '@/types/project'
 
 interface ProjectHeroProps {
   project: Project
-  hero: CaseStudy['hero']
+  hero: SplitHero
 }
 
 /** Case study opening: back link, big title, tagline, tags and the main visual. */
@@ -19,22 +19,13 @@ export function ProjectHero({ project, hero }: ProjectHeroProps) {
       <div className="container-page grid items-center gap-y-12 pt-2 pb-6 sm:pt-6 sm:pb-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-x-12 lg:pt-8 lg:pb-14">
         <motion.div initial="hidden" animate="visible" variants={stagger(0.08, 0.05)}>
           <motion.div variants={fadeUp}>
-            <Link
-              to="/#projets"
-              className="group touch-hit inline-flex items-center gap-2.5 rounded-sm text-[0.9375rem] text-ink-muted transition-colors duration-300 hover:text-ink"
-            >
-              <ArrowLeft
-                className="size-4 transition-transform duration-300 ease-(--ease-out-soft) group-hover:-translate-x-1"
-                aria-hidden="true"
-              />
-              Retour aux projets
-            </Link>
+            <BackToProjects />
           </motion.div>
 
           <motion.h1
             id="projet-titre"
             variants={fadeUp}
-            className="mt-10 text-[clamp(2.75rem,0.5rem+14vw,4.25rem)] leading-[0.86] tracking-[-0.01em] uppercase sm:text-[clamp(4.25rem,2.6rem+6vw,8.75rem)] lg:mt-16"
+            className="mt-10 text-[clamp(2.75rem,0.5rem+14vw,4.5rem)] leading-[0.86] tracking-[-0.01em] uppercase lg:mt-16"
           >
             {project.title}
           </motion.h1>
@@ -113,3 +104,19 @@ export function ProjectHero({ project, hero }: ProjectHeroProps) {
 }
 
 const HERO_SIZES = '(min-width: 1024px) 40rem, 100vw'
+
+/** "← Retour aux projets", shared by both hero layouts. */
+export function BackToProjects() {
+  return (
+    <Link
+      to="/#projets"
+      className="group touch-hit inline-flex items-center gap-2.5 rounded-sm text-[0.9375rem] text-ink-muted transition-colors duration-300 hover:text-ink"
+    >
+      <ArrowLeft
+        className="size-4 transition-transform duration-300 ease-(--ease-out-soft) group-hover:-translate-x-1"
+        aria-hidden="true"
+      />
+      Retour aux projets
+    </Link>
+  )
+}

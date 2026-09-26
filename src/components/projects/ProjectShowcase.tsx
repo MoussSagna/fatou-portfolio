@@ -1,12 +1,12 @@
 import { Reveal } from '@/animations/Reveal'
-import type { CaseStudy, ProjectMedia as Media } from '@/types/project'
+import type { ProjectMedia as Media, ShowcaseChapter } from '@/types/project'
 import { cn } from '@/lib/utils'
 import { ProjectHeading } from './ProjectHeading'
 import { ProjectMedia } from './ProjectMedia'
 
 interface ProjectShowcaseProps {
-  showcase: CaseStudy['showcase']
-  number: number
+  showcase: ShowcaseChapter
+  number?: number
 }
 
 /**

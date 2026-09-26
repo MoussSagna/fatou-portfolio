@@ -5,16 +5,17 @@ inlinés dans le JS, voir `vite.config.ts`) et chargés en différé.
 
 ## Sources
 
-| Logiciel    | Fichier           | Source                                                                                                                                                |
-| ----------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Figma       | `figma.svg`       | [svgl](https://svgl.app) — logo officiel                                                                                                              |
-| Photoshop   | `photoshop.svg`   | svgl — icône produit officielle Adobe                                                                                                                 |
-| Illustrator | `illustrator.svg` | svgl — icône produit officielle Adobe                                                                                                                 |
-| Adobe XD    | `adobe-xd.svg`    | svgl — icône produit officielle Adobe                                                                                                                 |
-| Lightroom   | `lightroom.svg`   | svgl — icône produit officielle Adobe                                                                                                                 |
-| Notion      | `notion.svg`      | svgl — logo officiel                                                                                                                                  |
-| Slack       | `slack.svg`       | svgl — logo officiel                                                                                                                                  |
-| Miro        | `miro.svg`        | Symbole officiel ([Simple Icons](https://simpleicons.org)) posé sur le carré jaune de l'icône d'app, aux couleurs de la marque (`#FFD02F`, `#050038`) |
+| Logiciel    | Fichier           | Source                                                                                                                                                                       |
+| ----------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Figma       | `figma.svg`       | [svgl](https://svgl.app) — logo officiel                                                                                                                                     |
+| Photoshop   | `photoshop.svg`   | svgl — icône produit officielle Adobe                                                                                                                                        |
+| Illustrator | `illustrator.svg` | svgl — icône produit officielle Adobe                                                                                                                                        |
+| Adobe XD    | `adobe-xd.svg`    | svgl — icône produit officielle Adobe                                                                                                                                        |
+| Lightroom   | `lightroom.svg`   | svgl — icône produit officielle Adobe                                                                                                                                        |
+| Notion      | `notion.svg`      | svgl — logo officiel                                                                                                                                                         |
+| Slack       | `slack.svg`       | svgl — logo officiel                                                                                                                                                         |
+| Miro        | `miro.svg`        | Symbole officiel ([Simple Icons](https://simpleicons.org)) posé sur le carré jaune de l'icône d'app, aux couleurs de la marque (`#FFD02F`, `#050038`)                        |
+| Maze        | `maze.svg`        | Symbole officiel ([Simple Icons](https://simpleicons.org), CC0 ; source : press kit Maze), noir. **Pages projet uniquement** (`caseStudyTools`), pas dans le dock de la Home |
 
 Aucun logo n'a été redessiné ni modifié (hormis la composition de l'icône Miro, à partir de son
 symbole et de ses couleurs officiels).

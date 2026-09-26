@@ -2,6 +2,7 @@ import adobeXd from '@/assets/tools/adobe-xd.svg'
 import figma from '@/assets/tools/figma.svg'
 import illustrator from '@/assets/tools/illustrator.svg'
 import lightroom from '@/assets/tools/lightroom.svg'
+import maze from '@/assets/tools/maze.svg'
 import miro from '@/assets/tools/miro.svg'
 import notion from '@/assets/tools/notion.svg'
 import photoshop from '@/assets/tools/photoshop.svg'
@@ -22,3 +23,9 @@ export const tools: Tool[] = [
   { id: 'miro', name: 'Miro', logo: miro },
   { id: 'slack', name: 'Slack', logo: slack },
 ]
+
+/** Tools cited in case studies only — not shown in the home page row. */
+const caseStudyTools: Tool[] = [{ id: 'maze', name: 'Maze', logo: maze }]
+
+/** Every known tool, looked up by id from the case studies. */
+export const allTools: Tool[] = [...tools, ...caseStudyTools]

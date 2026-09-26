@@ -1,12 +1,12 @@
 import { motion, useReducedMotion } from 'motion/react'
 import { Reveal } from '@/animations/Reveal'
 import { easeOutSoft } from '@/animations/variants'
-import type { CaseStudy } from '@/types/project'
+import type { ProcessChapter } from '@/types/project'
 import { ProjectHeading } from './ProjectHeading'
 
 interface ProjectProcessProps {
-  process: CaseStudy['process']
-  number: number
+  process: ProcessChapter
+  number?: number
 }
 
 /** Short design process: heading + a minimal step line (dotted connector, round icons). */
