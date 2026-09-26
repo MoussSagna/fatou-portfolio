@@ -1,10 +1,9 @@
 import type { CaseStudy, Project } from '@/types/project'
 import { projects } from '../projects'
 import { exmedCaseStudy } from './exmed'
-import { poppyCaseStudy } from './poppy'
 
 /** Published case studies. Add a project: create its file here and register it below. */
-const caseStudies: CaseStudy[] = [poppyCaseStudy, exmedCaseStudy]
+const caseStudies: CaseStudy[] = [exmedCaseStudy]
 
 export const caseStudyPath = (slug: string) => `/projects/${slug}`
 

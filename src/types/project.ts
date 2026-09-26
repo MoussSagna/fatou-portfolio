@@ -74,7 +74,7 @@ export interface ProjectFact {
   value: string
 }
 
-/** Two-column opening: title, tagline, tags and the visual side by side (Poppy). */
+/** Two-column opening: title, tagline, tags and the visual side by side. */
 export interface SplitHero {
   layout?: 'split'
   tagline: AccentText

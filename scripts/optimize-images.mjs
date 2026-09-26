@@ -31,10 +31,6 @@ function exmed(entries) {
  */
 const IMAGES = [
   { name: 'bitmoji', file: 'bitmoji.png', widths: [768, 1200, 1536] },
-  // Provisional project visuals cropped from the mockup — replace with HD exports.
-  { name: 'project-poppy', file: 'projects/poppy.png', widths: [434, 868] },
-  { name: 'project-lumiere', file: 'projects/lumiere.png', widths: [434, 868] },
-  { name: 'project-mindful', file: 'projects/mindful.png', widths: [434, 868] },
 
   // EXMED DA OPO PHONO — real exports from assets-src/projects/EXMED (see docs/project-pages.md).
   ...exmed([

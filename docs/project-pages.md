@@ -1,7 +1,12 @@
 # Pages projet (études de cas)
 
-Pages publiées : **`/projects/poppy`** (référence visuelle : `maquette/projetc.png`) et
-**`/projects/exmed`** (EXMED DA OPO PHONO, voir [plus bas](#exmed-da-opo-phono)).
+Page publiée : **`/projects/exmed`** (EXMED DA OPO PHONO, voir [plus bas](#exmed-da-opo-phono)).
+
+Les projets fictifs de la maquette (Poppy, Lumière, Mindful) ont été retirés le 2026-09-26 :
+données, étude de cas Poppy, visuels et sources. `/projects/poppy` redirige vers `/#projets`.
+Les composants du gabarit d'origine (`ProjectHero` split, `ProjectStory`, `ProjectProcess`,
+`ProjectShowcase`, `ProjectMedia` et ses emplacements « Visuel à venir ») restent disponibles
+pour un prochain projet, mais ne sont plus utilisés.
 
 ## Routing
 
@@ -85,8 +90,8 @@ l'ordre d'affichage (désactivable avec `chapterNumbers: false`).
 | `ProjectOutro`                                                                                  | `ProjectConclusion` (phrase + CTA) et `ProjectNavigation` (préc./suiv.) |
 
 `ProjectNavigation` : « Projet précédent » / « Retour aux projets » / « Projet suivant », dans
-l'ordre de la Home parmi les projets publiés (Poppy ↔ EXMED). N'affiche rien s'il n'y a qu'une
-page.
+l'ordre de la Home parmi les projets publiés. N'affiche rien s'il n'y a qu'une page (cas
+actuel).
 
 ## Mise en page
 
