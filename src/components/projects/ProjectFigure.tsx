@@ -24,7 +24,7 @@ interface ProjectFigureProps {
 export function ProjectFigure({ figure, sizes, fill, large, className }: ProjectFigureProps) {
   const reduceMotion = useReducedMotion()
   const [open, setOpen] = useState(false)
-  const { image, caption, surface, zoomable } = figure
+  const { image, caption, surface, zoomable, label } = figure
 
   const picture = (
     <picture className="contents">
@@ -75,6 +75,11 @@ export function ProjectFigure({ figure, sizes, fill, large, className }: Project
 
   return (
     <figure className={cn('flex flex-col', fill && 'lg:h-full', className)}>
+      {label && (
+        <p className="mb-4 font-display text-[clamp(1.75rem,1.2rem+1.6vw,2.75rem)] leading-none font-bold tracking-[-0.02em] text-ink uppercase lg:mb-6">
+          {label}
+        </p>
+      )}
       {zoomable ? (
         <button
           type="button"

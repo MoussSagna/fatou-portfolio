@@ -22,6 +22,19 @@ export const projects: Project[] = [
     ),
     href: '/projects/exmed',
   },
+  {
+    slug: 'ste-soeurs',
+    title: 'Ste SŒURS',
+    category: 'UI Design',
+    description: 'Refonte UI du portail SACEM',
+    image: responsiveImage(
+      'project-ste-soeurs',
+      [434, 739],
+      { width: 739, height: 800 },
+      'Landing page du portail SACEM : logo, titre « SACEM Portal » et bouton « Log in ».',
+    ),
+    href: '/projects/ste-soeurs',
+  },
 ]
 
 /** Destination of "Voir tous les projets" until a projects page exists. */

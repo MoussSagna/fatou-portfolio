@@ -16,7 +16,10 @@ interface ProjectHeroWideProps {
  * on phones).
  */
 export function ProjectHeroWide({ hero }: ProjectHeroWideProps) {
-  const { titleLines, subtitle, facts, image, imageMobile } = hero
+  const { titleLines, subtitle, facts, image, imageMobile, fullImage } = hero
+  // A portrait visual shown whole would be taller than the screen at full
+  // width: it gets a narrower column, aligned right from lg.
+  const portrait = fullImage && image.height > image.width
 
   return (
     <section aria-labelledby="projet-titre" className="relative overflow-x-clip">
@@ -54,7 +57,11 @@ export function ProjectHeroWide({ hero }: ProjectHeroWideProps) {
             <FactList
               facts={facts}
               itemVariants={fadeUp}
-              className="grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4"
+              className={
+                facts.length > 4
+                  ? 'grid-cols-2 sm:grid-cols-3 xl:grid-cols-5'
+                  : 'grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4'
+              }
             />
           </motion.div>
         </div>
@@ -65,7 +72,10 @@ export function ProjectHeroWide({ hero }: ProjectHeroWideProps) {
           initial={{ opacity: 0, y: 32, scale: 0.985 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 1.1, delay: 0.45, ease: easeOutSoft }}
-          className="overflow-hidden rounded-[1.25rem] bg-nude-200 shadow-float sm:rounded-[2rem] lg:rounded-[2.5rem]"
+          className={cn(
+            'overflow-hidden rounded-[1.25rem] bg-nude-200 shadow-float sm:rounded-[2rem] lg:rounded-[2.5rem]',
+            portrait && 'mx-auto max-w-[40rem] lg:mr-0',
+          )}
         >
           <picture>
             {imageMobile && (
@@ -74,8 +84,16 @@ export function ProjectHeroWide({ hero }: ProjectHeroWideProps) {
                 <source media={MOBILE} type="image/webp" srcSet={imageMobile.webp} sizes="94vw" />
               </>
             )}
-            <source type="image/avif" srcSet={image.avif} sizes={HERO_SIZES} />
-            <source type="image/webp" srcSet={image.webp} sizes={HERO_SIZES} />
+            <source
+              type="image/avif"
+              srcSet={image.avif}
+              sizes={portrait ? PORTRAIT_SIZES : HERO_SIZES}
+            />
+            <source
+              type="image/webp"
+              srcSet={image.webp}
+              sizes={portrait ? PORTRAIT_SIZES : HERO_SIZES}
+            />
             <img
               src={image.src}
               width={image.width}
@@ -85,7 +103,11 @@ export function ProjectHeroWide({ hero }: ProjectHeroWideProps) {
               decoding="async"
               className={cn(
                 'w-full object-cover object-top',
-                imageMobile ? 'aspect-[217/235] sm:aspect-[16/10]' : 'aspect-[16/10]',
+                fullImage
+                  ? 'h-auto'
+                  : imageMobile
+                    ? 'aspect-[217/235] sm:aspect-[16/10]'
+                    : 'aspect-[16/10]',
               )}
             />
           </picture>
@@ -96,4 +118,5 @@ export function ProjectHeroWide({ hero }: ProjectHeroWideProps) {
 }
 
 const HERO_SIZES = '(min-width: 1440px) 81rem, 94vw'
+const PORTRAIT_SIZES = '(min-width: 704px) 40rem, 94vw'
 const MOBILE = '(max-width: 639px)'

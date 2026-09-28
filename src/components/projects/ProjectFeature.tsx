@@ -15,39 +15,41 @@ export function ProjectFeature({ section }: { section: FeatureSection }) {
     <section
       id={section.id}
       aria-labelledby={titleId}
-      className="container-page py-20 sm:py-24 lg:py-32"
+      className={cn(section.tinted && 'bg-nude-200')}
     >
-      <div className="grid gap-8 lg:grid-cols-12 lg:items-end lg:gap-8">
-        <Reveal className="lg:col-span-6">
-          <SectionLabel>
-            {section.index && (
-              <span className="mr-4 font-semibold text-terracotta sm:mr-6">{section.index}</span>
-            )}
-            {section.label}
-          </SectionLabel>
-          <h2
-            id={titleId}
-            className="mt-6 text-[clamp(2.5rem,1.3rem+3.8vw,5.5rem)] leading-[0.98] tracking-[-0.03em] text-balance lg:mt-8"
-          >
-            {section.index && <span className="sr-only">{section.index} — </span>}
-            <Accented value={section.title} />
-          </h2>
-        </Reveal>
-        <Reveal delay={0.1} className="lg:col-span-5 lg:col-start-8">
-          {section.body.map((paragraph, index) => (
-            <p
-              key={paragraph}
-              className={cn('text-lead text-ink-muted', index > 0 && 'mt-5 lg:mt-6')}
+      <div className="container-page py-20 sm:py-24 lg:py-32">
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-end lg:gap-8">
+          <Reveal className="lg:col-span-6">
+            <SectionLabel>
+              {section.index && (
+                <span className="mr-4 font-semibold text-terracotta sm:mr-6">{section.index}</span>
+              )}
+              {section.label}
+            </SectionLabel>
+            <h2
+              id={titleId}
+              className="mt-6 text-[clamp(2.5rem,1.3rem+3.8vw,5.5rem)] leading-[0.98] tracking-[-0.03em] text-balance lg:mt-8"
             >
-              {paragraph}
-            </p>
-          ))}
-        </Reveal>
-      </div>
+              {section.index && <span className="sr-only">{section.index} — </span>}
+              <Accented value={section.title} />
+            </h2>
+          </Reveal>
+          <Reveal delay={0.1} className="lg:col-span-5 lg:col-start-8">
+            {section.body.map((paragraph, index) => (
+              <p
+                key={paragraph}
+                className={cn('text-lead text-ink-muted', index > 0 && 'mt-5 lg:mt-6')}
+              >
+                {paragraph}
+              </p>
+            ))}
+          </Reveal>
+        </div>
 
-      {section.figures.map((group) => (
-        <FigureRow key={group.items.map((item) => item.image.src).join('|')} group={group} />
-      ))}
+        {section.figures.map((group) => (
+          <FigureRow key={group.items.map((item) => item.image.src).join('|')} group={group} />
+        ))}
+      </div>
     </section>
   )
 }
@@ -97,7 +99,13 @@ function FigureRow({ group }: { group: FigureGroup }) {
           large
         />
       </div>
-      <div className="flex flex-col gap-10 lg:col-span-5 lg:gap-8">
+      <div
+        className={cn(
+          'flex flex-col gap-10 lg:col-span-5 lg:gap-8',
+          // Screens stay in view beside a taller large visual; tiles stretch instead.
+          !rest.some((figure) => figure.surface) && 'lg:sticky lg:top-28 lg:self-start',
+        )}
+      >
         {rest.map((figure) => (
           <ProjectFigure
             key={figure.image.src}

@@ -28,6 +28,7 @@ npm run bitmoji:vector  # régénère le bitmoji SVG en calques
 | [bitmoji.md](bitmoji.md)                             | Intégration et animations du bitmoji          |
 | [tools.md](tools.md)                                 | Logos des logiciels : sources, marques, ajout |
 | [project-pages.md](project-pages.md)                 | Pages projet : routing, données, composants   |
+| [seo.md](seo.md)                                     | SEO : métadonnées, sitemap, robots, JSON-LD   |
 | [sprints/](sprints/)                                 | Comptes rendus de sprint                      |
 | [comparisons/](comparisons/)                         | Captures maquette ↔ rendu                     |
 

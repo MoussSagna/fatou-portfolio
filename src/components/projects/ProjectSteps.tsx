@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from 'motion/react'
 import { Reveal } from '@/animations/Reveal'
 import { easeOutSoft } from '@/animations/variants'
 import type { StepsSection } from '@/types/project'
+import { cn } from '@/lib/utils'
 import { Accented, SectionLabel } from './ProjectHeading'
 
 /**
@@ -29,7 +30,12 @@ export function ProjectSteps({ section }: { section: StepsSection }) {
           </h2>
         </Reveal>
 
-        <ol className="mt-14 grid gap-y-10 sm:grid-cols-2 sm:gap-x-10 lg:mt-20 lg:grid-cols-5 lg:gap-x-8">
+        <ol
+          className={cn(
+            'mt-14 grid gap-y-10 sm:grid-cols-2 sm:gap-x-10 lg:mt-20 lg:gap-x-8',
+            section.steps.length === 4 ? 'lg:grid-cols-4' : 'lg:grid-cols-5',
+          )}
+        >
           {section.steps.map((step, index) => (
             <li key={step.label} className="relative pt-6 lg:pt-8">
               <motion.span

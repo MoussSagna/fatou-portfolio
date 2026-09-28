@@ -94,6 +94,8 @@ export interface WideHero {
   image: ResponsiveImage
   /** Portrait crop of the same visual for phones (< 640 px), where 16:10 is too small. */
   imageMobile?: ResponsiveImage
+  /** Shows the whole visual at its natural ratio instead of the 16:10 crop. */
+  fullImage?: boolean
 }
 
 /**
@@ -111,6 +113,8 @@ export interface ProjectFigure {
   surface?: string
   /** Screens only: the visual opens full size on click (dense UI stays legible). */
   zoomable?: boolean
+  /** Large display word above the visual ("Boutons"). */
+  label?: string
 }
 
 /** How a group of figures is laid out. */
@@ -141,6 +145,8 @@ export interface FeatureSection {
   title: AccentText
   body: string[]
   figures: FigureGroup[]
+  /** Nude band behind the section. */
+  tinted?: boolean
 }
 
 /** Two-column introduction: a short statement on the left, the description on the right. */
@@ -150,6 +156,31 @@ export interface IntroSection {
   label: string
   statement: AccentText
   body: string[]
+  /** Optional large visual beside the text (text left, visual right). */
+  figure?: ProjectFigure
+}
+
+/** Problems listed editorially: number, large keyword, one sentence each. */
+export interface IssuesSection {
+  kind: 'issues'
+  id: string
+  label: string
+  title: AccentText
+  lead: string
+  items: { keyword: string; text: string }[]
+}
+
+/** One large sentence with generous space around it. */
+export interface StatementSection {
+  kind: 'statement'
+  id: string
+  label: string
+  /** Small title above the sentence (h2); the label is used when omitted. */
+  title?: string
+  quote: AccentText
+  body?: string
+  align?: 'center' | 'left'
+  tinted?: boolean
 }
 
 /** Simplified business flow, one large line per step. */
@@ -213,6 +244,8 @@ export type CaseStudySection =
   | { kind: 'showcase'; chapter: ShowcaseChapter }
   | { kind: 'tools'; chapter: ToolsChapter }
   | IntroSection
+  | IssuesSection
+  | StatementSection
   | FlowSection
   | FeatureSection
   | NotesSection

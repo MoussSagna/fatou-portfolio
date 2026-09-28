@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { Navigate, useParams } from 'react-router'
 import { ProjectFacts } from '@/components/projects/ProjectFacts'
 import { ProjectFeature } from '@/components/projects/ProjectFeature'
@@ -6,31 +5,23 @@ import { ProjectFlow } from '@/components/projects/ProjectFlow'
 import { ProjectHero } from '@/components/projects/ProjectHero'
 import { ProjectHeroWide } from '@/components/projects/ProjectHeroWide'
 import { ProjectIntro } from '@/components/projects/ProjectIntro'
+import { ProjectIssues } from '@/components/projects/ProjectIssues'
 import { ProjectNotes } from '@/components/projects/ProjectNotes'
 import { ProjectConclusion, ProjectNavigation } from '@/components/projects/ProjectOutro'
 import { ProjectProcess } from '@/components/projects/ProjectProcess'
 import { ProjectShowcase } from '@/components/projects/ProjectShowcase'
+import { ProjectStatement } from '@/components/projects/ProjectStatement'
 import { ProjectSteps } from '@/components/projects/ProjectSteps'
 import { ProjectStory } from '@/components/projects/ProjectStory'
 import { ProjectTools } from '@/components/projects/ProjectTools'
 import { getAdjacentProjects, getCaseStudy } from '@/data/case-studies'
-import { site } from '@/data/site'
+import { Seo } from '@/seo/useSeo'
 import type { CaseStudy } from '@/types/project'
 
 /** Case study template (/projects/:slug) — content comes from data/case-studies. */
 export function ProjectPage() {
   const { slug } = useParams()
   const entry = getCaseStudy(slug)
-  const title = entry?.project.title
-
-  useEffect(() => {
-    if (!title) return
-    const previousTitle = document.title
-    document.title = `${title} — ${site.name}, ${site.role}`
-    return () => {
-      document.title = previousTitle
-    }
-  }, [title])
 
   if (!entry) return <Navigate to="/#projets" replace />
 
@@ -40,6 +31,7 @@ export function ProjectPage() {
 
   return (
     <article>
+      <Seo project={project.slug} />
       {hero.layout === 'wide' ? (
         <ProjectHeroWide hero={hero} />
       ) : (
@@ -84,6 +76,10 @@ function CaseStudySections({ caseStudy }: { caseStudy: CaseStudy }) {
         return <ProjectTools key="tools" tools={section.chapter} number={nextNumber()} />
       case 'intro':
         return <ProjectIntro key={section.id} section={section} />
+      case 'issues':
+        return <ProjectIssues key={section.id} section={section} />
+      case 'statement':
+        return <ProjectStatement key={section.id} section={section} />
       case 'flow':
         return <ProjectFlow key={section.id} section={section} />
       case 'feature':

@@ -1,11 +1,16 @@
 import { MotionConfig } from 'motion/react'
+import { lazy, Suspense } from 'react'
 import { Navigate, Route, Routes } from 'react-router'
 import { MobileTabBar } from '@/components/layout/MobileTabBar'
 import { ScrollManager } from '@/components/layout/ScrollManager'
 import { SiteFooter } from '@/components/layout/SiteFooter'
 import { SiteHeader } from '@/components/layout/SiteHeader'
 import { HomePage } from '@/pages/HomePage'
-import { ProjectPage } from '@/pages/ProjectPage'
+
+// Case studies load on demand: the home page does not ship their code and data.
+const ProjectPage = lazy(() =>
+  import('@/pages/ProjectPage').then((module) => ({ default: module.ProjectPage })),
+)
 
 export default function App() {
   return (
@@ -22,7 +27,15 @@ export default function App() {
       <main id="contenu">
         <Routes>
           <Route index element={<HomePage />} />
-          <Route path="projects/:slug" element={<ProjectPage />} />
+          <Route
+            path="projects/:slug"
+            element={
+              // Keeps the footer below the fold while the chunk loads.
+              <Suspense fallback={<div className="min-h-svh" />}>
+                <ProjectPage />
+              </Suspense>
+            }
+          />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>

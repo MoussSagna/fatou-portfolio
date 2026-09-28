@@ -1,6 +1,7 @@
 # Pages projet (études de cas)
 
-Page publiée : **`/projects/exmed`** (EXMED DA OPO PHONO, voir [plus bas](#exmed-da-opo-phono)).
+Pages publiées : **`/projects/exmed`** (EXMED DA OPO PHONO, voir [plus bas](#exmed-da-opo-phono))
+et **`/projects/ste-soeurs`** (Ste SŒURS, voir [plus bas](#ste-sœurs)).
 
 Les projets fictifs de la maquette (Poppy, Lumière, Mindful) ont été retirés le 2026-09-26 :
 données, étude de cas Poppy, visuels et sources. `/projects/poppy` redirige vers `/#projets`.
@@ -40,21 +41,24 @@ Contenu séparé de l'UI :
 
 - `hero.layout` : `'split'` (défaut, Poppy : titre + tagline + tags à gauche, visuel à droite) ou
   `'wide'` (EXMED : titre sur plusieurs lignes, sous-titre, rangée d'infos, très grand visuel
-  dessous ; `imageMobile` optionnel = recadrage portrait < 640 px).
+  dessous ; `imageMobile` optionnel = recadrage portrait < 640 px ; `fullImage` = visuel entier
+  au ratio naturel au lieu du recadrage 16:10).
 - `sections[].kind` :
 
-| Kind       | Composant         | Rôle                                                                 |
-| ---------- | ----------------- | -------------------------------------------------------------------- |
-| `story`    | `ProjectStory`    | Chapitre texte + grand visuel, alterne gauche/droite                 |
-| `process`  | `ProjectProcess`  | Frise d'icônes Research → Prototype                                  |
-| `showcase` | `ProjectShowcase` | Écrans finaux en cadres fixes (rangées de 1 ou 2)                    |
-| `tools`    | `ProjectTools`    | Logos officiels, rôle optionnel sous chaque outil (`notes`)          |
-| `intro`    | `ProjectIntro`    | Deux colonnes : phrase forte / description                           |
-| `flow`     | `ProjectFlow`     | Processus métier en grandes lignes typographiques, étapes surlignées |
-| `feature`  | `ProjectFeature`  | Titre (index optionnel « 03 ») + groupes de visuels réels            |
-| `notes`    | `ProjectNotes`    | Étapes sans visuel : grand numéro, titre, texte, côte à côte         |
-| `steps`    | `ProjectSteps`    | Récapitulatif numéroté sur bandeau encre                             |
-| `facts`    | `ProjectFacts`    | Liste d'infos minimaliste (client, rôle…)                            |
+| Kind        | Composant          | Rôle                                                                            |
+| ----------- | ------------------ | ------------------------------------------------------------------------------- |
+| `story`     | `ProjectStory`     | Chapitre texte + grand visuel, alterne gauche/droite                            |
+| `process`   | `ProjectProcess`   | Frise d'icônes Research → Prototype                                             |
+| `showcase`  | `ProjectShowcase`  | Écrans finaux en cadres fixes (rangées de 1 ou 2)                               |
+| `tools`     | `ProjectTools`     | Logos officiels, rôle optionnel sous chaque outil (`notes`)                     |
+| `intro`     | `ProjectIntro`     | Deux colonnes : phrase forte / description ; ou texte + grand visuel (`figure`) |
+| `issues`    | `ProjectIssues`    | Problèmes en lignes éditoriales : numéro, grand mot-clé, une phrase             |
+| `statement` | `ProjectStatement` | Une grande phrase très aérée, centrée ou alignée à gauche, bandeau optionnel    |
+| `flow`      | `ProjectFlow`      | Processus métier en grandes lignes typographiques, étapes surlignées            |
+| `feature`   | `ProjectFeature`   | Titre (index optionnel « 03 ») + groupes de visuels réels                       |
+| `notes`     | `ProjectNotes`     | Étapes sans visuel : grand numéro, titre, texte, côte à côte                    |
+| `steps`     | `ProjectSteps`     | Récapitulatif numéroté sur bandeau encre                                        |
+| `facts`     | `ProjectFacts`     | Liste d'infos minimaliste (client, rôle…)                                       |
 
 Les 4 premiers kinds sont les chapitres du gabarit d'origine, numérotés « 01. », « 02. »… dans
 l'ordre d'affichage (désactivable avec `chapterNumbers: false`).
@@ -69,7 +73,10 @@ l'ordre d'affichage (désactivable avec `chapterNumbers: false`).
   avec `zoomable`, clic → vue pleine taille dans un `<dialog>` natif (Échap, focus rendu au
   déclencheur ; < `lg` l'écran garde sa largeur d'export et se parcourt au doigt).
 - Mises en page de groupe (`FigureGroup.layout`) : `wide`, `inset` (10/12 centré), `feature` /
-  `feature-reverse` (1 grand + les autres empilés), `pair` (7/5 décalés).
+  `feature-reverse` (1 grand + les autres empilés ; si ce sont des écrans, la colonne empilée
+  reste collée à l'écran en `lg`), `pair` (7/5 décalés).
+- `label` sur un visuel : grand mot en capitales au-dessus (« Boutons », « Champs »…).
+- `feature` accepte `tinted` (bandeau nude).
 - `lib/responsive-image.ts` : `responsiveImage(name, widths, size, alt)` construit les srcset à
   partir des fichiers générés par `npm run images` (erreur explicite si un fichier manque).
 
@@ -133,7 +140,9 @@ Uniquement `opacity` / `transform`. Mouvement réduit : tout est visible d'embl�
    `caseStudies` de `data/case-studies/index.ts`.
 3. Dans `data/projects.ts`, passer le `href` de la carte à `/projects/<slug>`.
 
-La route, la navigation précédent/suivant et le titre d'onglet suivent automatiquement.
+4. Ajouter son SEO (entrée `projectsSeo` + image de partage) : voir [seo.md](seo.md#ajouter-un-projet).
+
+La route, la navigation précédent/suivant, le `<head>` et le sitemap suivent automatiquement.
 
 ## EXMED DA OPO PHONO
 
@@ -192,3 +201,45 @@ empilées ; `notes` côte à côte dès `md` ; processus : liste < `sm`, 2 colon
 Pastille « Agrandir » toujours visible au tactile. Vérifié à 320, 375, 390, 414, 768, 1024 et
 1440 px : aucun scroll horizontal, aucune image cassée, aucune erreur console.
 Captures : `comparisons/exmed-1440-full.png`, `comparisons/exmed-375-mobile.png`.
+
+## Ste SŒURS
+
+Route **`/projects/ste-soeurs`** — « Refonte UI du portail SACEM » : client SACEM, rôle UI/UX
+Designer, 2023, UI Design, outil Figma, livrable « Refonte UI du portail SACEM ».
+
+- Données : `data/case-studies/ste-soeurs.ts`, carte Home dans `data/projects.ts` (après EXMED).
+  Navigation : EXMED ↔ Ste SŒURS.
+- Textes : uniquement ceux du brief. Aucune recherche ou test utilisateur, aucun chiffre ou
+  résultat. Les étapes du process ne reprennent que ce que montrent les textes et les assets.
+
+### Assets (`assets-src/projects/STE-SOEURS/`, @2x sauf la landing)
+
+| Source                                        | Généré                                                                                            | Où                                     |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| `landing-page.png`                            | `ste-landing` (960/1440)                                                                          | Hero (entière) + Nouvelle interface    |
+| `1. soeur - Mes programmes - Setlist…`        | `ste-setlists` (960/1600/2880, bas vide retiré)                                                   | Le projet (texte + visuel)             |
+| `2.2 - Ste - Declarer un programme…`          | `ste-declare` (800/1488/2976)                                                                     | Nouvelle interface (grand écran)       |
+| `landing-page.png` (partie gauche, 739 × 800) | `project-ste-soeurs` (434/739)                                                                    | Carte Home                             |
+| `Documentation -Ste soeur.png` (7 découpes)   | `ste-doc-forms`, `-buttons`, `-switch-stepper`, `-datepicker`, `-lists`, `-alerts`, `-typography` | Design System, Harmoniser l'expérience |
+
+L'image Cloudinary de référence est identique (octet pour octet) à `landing-page.png`.
+
+**Absents du dossier** : écrans de l'ancien portail (→ pas d'avant/après : section « La nouvelle
+interface »), maquettes mobiles / variantes (→ section Modularité typographique), écran
+« déclaration des dates » (seul le composant date picker existe), documentation des
+espacements (→ « Harmoniser l'expérience » montre boutons, champs et listes seulement).
+Les icônes de la planche ne sont pas présentées (petites et peu lisibles une fois découpées).
+
+### Structure
+
+Hero (wide : `landing-page.png` entière, ratio d'origine ; la carte de la Home en montre la partie gauche) → Le projet (`intro` + écran Setlists) → Le besoin (`issues` :
+Expérience, Identité, UI, Design System) → L'objectif (`statement` centré) → La nouvelle
+interface (`feature` : déclaration d'un programme + landing collée à droite) → Design System
+(`feature` teinté : date picker, switch & stepper, typographie, alertes) → Harmoniser
+l'expérience (`feature` avec grands libellés : Boutons, Champs, Listes) → Modularité
+(`statement` aligné à gauche, bandeau) → Le processus (`steps`, 4 colonnes) → Outil (Figma) →
+Informations → conclusion → navigation.
+
+Animations, responsive : mêmes règles qu'EXMED. Vérifié à 320, 375, 390, 414, 768, 1024 et
+1440 px (et en mouvement réduit) : aucun scroll horizontal, aucune image cassée, aucune erreur
+console. Captures : `comparisons/ste-soeurs-1440-full.png`, `comparisons/ste-soeurs-375-mobile.png`.
