@@ -1,4 +1,4 @@
-import { BriefcaseBusiness, GraduationCap, Rocket } from 'lucide-react'
+import { Footprints, Mountain, Music } from 'lucide-react'
 import type { Experience } from '@/types/experience'
 
 /**
@@ -7,33 +7,48 @@ import type { Experience } from '@/types/experience'
  */
 export const experience: Experience[] = [
   {
-    id: 'freelance',
+    id: 'sacem',
     start: 2023,
-    end: null,
+    end: 2025,
     role: 'UI/UX Designer',
-    company: 'Freelance',
-    description:
-      'Accompagnement de marques et startups sur leurs produits digitaux (UI/UX, branding, stratégie).',
-    icon: GraduationCap,
+    company: 'SACEM',
+    description: 'Création d’expériences utilisateur pour les solutions numériques de la Sacem.',
+    missions: [
+      'Analyse des besoins utilisateurs',
+      'Création de wireframes et prototypes (Figma)',
+      'Tests utilisateurs (scénarios, analyse, restitutions)',
+      'Gestion et évolution du Design System',
+      'Réalisation d’audits sur les parcours existants',
+      'Collaboration avec équipes produit et développeurs',
+    ],
+    icon: Music,
   },
   {
-    id: 'studio',
-    start: 2022,
-    end: 2023,
-    role: 'UI/UX Designer',
-    company: 'Studio créatif',
-    description:
-      'Conception d’interfaces et de design systems pour des clients variés (web & mobile).',
-    icon: BriefcaseBusiness,
+    id: 'sonofsneakers',
+    start: 2020,
+    end: 2021,
+    role: 'Webdesigner',
+    company: 'SONOFSNEAKERS',
+    missions: [
+      'Création de l’arborescence du site',
+      'Réalisation de maquette et prototype',
+      'Création de supports de communication',
+    ],
+    icon: Footprints,
   },
   {
-    id: 'agence',
-    start: 2021,
-    end: 2022,
-    role: 'Junior UI/UX Designer',
-    company: 'Agence digitale',
-    description:
-      'Participation à la conception de sites web et applications mobiles, de la recherche utilisateur au prototype.',
-    icon: Rocket,
+    id: 'team-trail-ouzbek',
+    start: 2019,
+    end: 2020,
+    role: 'Webdesigner',
+    company: 'Association Team Trail Ouzbek',
+    missions: [
+      'Création de l’arborescence du site',
+      'Respect du cahier des charges',
+      'Création du site avec WordPress',
+      'Optimisation du référencement (SEO)',
+      'Refonte du logo',
+    ],
+    icon: Mountain,
   },
 ]

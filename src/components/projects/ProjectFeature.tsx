@@ -1,5 +1,5 @@
 import { Reveal } from '@/animations/Reveal'
-import type { FeatureSection, FigureGroup } from '@/types/project'
+import type { FeatureSection, FeatureSubsection, FigureGroup } from '@/types/project'
 import { cn } from '@/lib/utils'
 import { Accented, SectionLabel } from './ProjectHeading'
 import { ProjectFigure } from './ProjectFigure'
@@ -49,8 +49,59 @@ export function ProjectFeature({ section }: { section: FeatureSection }) {
         {section.figures.map((group) => (
           <FigureRow key={group.items.map((item) => item.image.src).join('|')} group={group} />
         ))}
+
+        {section.subsections?.map((subsection) => (
+          <FeatureSubpart key={subsection.id} subsection={subsection} />
+        ))}
       </div>
     </section>
+  )
+}
+
+/**
+ * Sub-part of the same chapter (same band, no new section): a hairline and a
+ * smaller heading carry the story on from the visuals above.
+ */
+function FeatureSubpart({ subsection }: { subsection: FeatureSubsection }) {
+  const titleId = `subsection-${subsection.id}`
+
+  return (
+    <div
+      id={subsection.id}
+      role="group"
+      aria-labelledby={titleId}
+      className="mt-20 scroll-mt-24 border-t border-line pt-14 lg:mt-32 lg:pt-20"
+    >
+      <div className="grid gap-8 lg:grid-cols-12 lg:items-end lg:gap-8">
+        <Reveal className="lg:col-span-6">
+          <h3
+            id={titleId}
+            className="text-[clamp(2rem,1.2rem+2.4vw,3.75rem)] leading-[1.02] tracking-[-0.03em] text-balance"
+          >
+            <Accented value={subsection.title} />
+          </h3>
+        </Reveal>
+        <Reveal delay={0.1} className="lg:col-span-5 lg:col-start-8">
+          {subsection.body.map((paragraph, index) => (
+            <p
+              key={paragraph}
+              className={cn('text-lead text-ink-muted', index > 0 && 'mt-5 lg:mt-6')}
+            >
+              {paragraph}
+            </p>
+          ))}
+          {subsection.keywords && (
+            <p className="mt-6 text-sm font-semibold tracking-[0.2em] text-ink uppercase">
+              {subsection.keywords.join(' · ')}
+            </p>
+          )}
+        </Reveal>
+      </div>
+
+      {subsection.figures.map((group) => (
+        <FigureRow key={group.items.map((item) => item.image.src).join('|')} group={group} />
+      ))}
+    </div>
   )
 }
 

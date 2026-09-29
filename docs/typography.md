@@ -27,6 +27,11 @@ et ajouter un `@font-face`. Fallbacks : Chubbo → Chillax → system-ui.
 | `text-lead`    | 16 → 19 px | 1,7        | —         | Paragraphes d'intro |
 | `text-eyebrow` | 13 px      | 1          | 0,36 em   | Labels en capitales |
 
+Le titre du hero (« PORTFOLIO », 2026-09-29) n'utilise plus `text-display` : capitales, approche
++0,04 em, 44 → 88 px (`clamp(2.75rem, min(1.8rem + 3.6vw, 8.4svh), 5.5rem)`), soit ≈ +13 % par
+rapport à `text-display` ; le coefficient `vw` est réglé pour que le mot tienne dans sa colonne
+entre `lg` et `xl`.
+
 `text-display` et `text-lead` sont aussi plafonnés par la **hauteur** d'écran (`7.4svh` et
 `2.3svh`) pour que le hero tienne sans scroll sur les écrans bas.
 

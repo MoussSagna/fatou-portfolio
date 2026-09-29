@@ -1,13 +1,8 @@
 import { motion } from 'motion/react'
-import { ArrowDown, ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import { easeOutSoft, fadeUp, stagger } from '@/animations/variants'
 import { Bitmoji } from '@/components/bitmoji/Bitmoji'
 import { Button } from '@/components/ui/button'
-import { Eyebrow } from '@/components/ui/eyebrow'
-import { site } from '@/data/site'
-
-const HEADLINE = ['Des idées', 'en expériences'] as const
-const HEADLINE_ACCENT = 'qui comptent.'
 
 export function HeroSection() {
   return (
@@ -17,35 +12,29 @@ export function HeroSection() {
       className="relative overflow-x-clip lg:h-[calc(100svh-6rem)] lg:max-h-[60rem] lg:min-h-[32rem]"
     >
       {/* Desktop: the hero fits the viewport under the header — text and illustration both visible without scrolling. */}
-      <div className="relative container-page grid h-full items-center gap-y-5 pt-2 pb-6 sm:gap-y-6 sm:pt-10 sm:pb-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] lg:gap-x-10 lg:py-12">
+      <div className="relative container-page grid h-full items-center gap-y-5 pt-6 pb-6 sm:gap-y-6 sm:pt-10 sm:pb-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] lg:gap-x-10 lg:py-12">
         <motion.div
           initial="hidden"
           animate="visible"
           variants={stagger(0.09, 0.1)}
           className="relative z-10 flex flex-col"
         >
-          <motion.div variants={fadeUp}>
-            <Eyebrow>{site.role}</Eyebrow>
-          </motion.div>
-
-          <h1 id="hero-title" className="mt-5 text-display lg:mt-6">
-            {HEADLINE.map((line) => (
-              <motion.span key={line} variants={fadeUp} className="block whitespace-nowrap">
-                {line}
-              </motion.span>
-            ))}
-            <motion.span variants={fadeUp} className="block whitespace-nowrap text-terracotta">
-              {HEADLINE_ACCENT}
+          {/* Slightly larger than text-display, set in spaced capitals. */}
+          <h1
+            id="hero-title"
+            className="text-[clamp(2.75rem,min(1.8rem+3.6vw,8.4svh),5.5rem)] leading-[0.96] tracking-[0.04em] uppercase"
+          >
+            <motion.span variants={fadeUp} className="block whitespace-nowrap">
+              Portfolio
             </motion.span>
           </h1>
 
           <motion.p
             variants={fadeUp}
-            className="mt-5 max-w-[30rem] text-lead text-ink-muted lg:mt-6"
+            className="mt-5 max-w-[30rem] text-lead text-pretty text-ink-muted lg:mt-6 lg:max-w-[32rem] lg:text-[1.3125rem]"
           >
-            Je suis {site.name}, UI/UX designer. J’imagine et conçois des expériences digitales
-            esthétiques, intuitives et humaines pour aider les marques à créer des produits que les
-            gens aiment vraiment.
+            Designer UI/UX passionnée par les expériences qui ont du sens, je conçois des produits
+            digitaux esthétiques, intuitifs et pensés pour les gens qui les utilisent.
           </motion.p>
 
           <motion.div
@@ -59,24 +48,6 @@ export function HeroSection() {
               </a>
             </Button>
           </motion.div>
-          <motion.a
-            variants={fadeUp}
-            href="#projets"
-            aria-label="Faire défiler vers les projets"
-            className="absolute top-[calc(100%+2rem)] hidden w-fit items-start gap-3.5 rounded-sm border-l border-ink/50 py-1 pl-7 [@media(min-height:44rem)]:lg:flex"
-          >
-            <span className="flex flex-col items-center gap-4">
-              <span className="text-xs font-medium tracking-[0.3em] text-ink-muted uppercase">
-                Scroll
-              </span>
-              <motion.span
-                animate={{ y: [0, 5, 0] }}
-                transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-              >
-                <ArrowDown className="size-5 text-ink" strokeWidth={1.5} aria-hidden="true" />
-              </motion.span>
-            </span>
-          </motion.a>
         </motion.div>
 
         <motion.div

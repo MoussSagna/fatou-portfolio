@@ -145,8 +145,20 @@ export interface FeatureSection {
   title: AccentText
   body: string[]
   figures: FigureGroup[]
+  /** Follow-up parts of the same chapter, shown under its visuals. */
+  subsections?: FeatureSubsection[]
   /** Nude band behind the section. */
   tinted?: boolean
+}
+
+/** A sub-part of a feature chapter: smaller heading, copy, optional keywords and visuals. */
+export interface FeatureSubsection {
+  id: string
+  title: AccentText
+  body: string[]
+  /** Short list shown under the copy ("Boutons · Champs · Listes"). */
+  keywords?: string[]
+  figures: FigureGroup[]
 }
 
 /** Two-column introduction: a short statement on the left, the description on the right. */

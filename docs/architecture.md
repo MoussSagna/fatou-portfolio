@@ -39,12 +39,18 @@ src/
   lib/                   utils (cn), responsive-image (srcset depuis les images générées)
   pages/                 HomePage (assemble les sections), ProjectPage (template étude de cas)
   seo/                   données SEO, construction du <head>, composant <Seo /> (voir seo.md)
-  sections/              une section = un fichier (Hero, Projects, Skills, Experience, Contact)
+  sections/              une section = un fichier (Hero, About, Skills, Experience, Tools, Projects, Contact)
   styles/                globals.css (tokens), fonts.css
   types/                 types partagés
 docs/                    cette documentation
 maquette/                références visuelles fournies
 ```
+
+## Ordre de la Home
+
+Hero → À propos (`#a-propos`, présentation ; nom repris de `seo/data.ts`) → Compétences
+(`#competences`) → Parcours (`#parcours`) → Logiciels (`#logiciels`) → Projets (`#projets`) →
+Contact → footer. Le bouton « Scroll » du hero a été retiré le 2026-09-28.
 
 ## Conventions
 

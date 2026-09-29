@@ -119,7 +119,7 @@ export const exmedCaseStudy: CaseStudy = {
       kind: 'flow',
       id: 'besoin',
       label: 'Le contexte métier',
-      title: { text: 'Comprendre', accent: 'le besoin.' },
+      title: { text: 'Comprendre', accent: 'le besoin' },
       body: [
         'EXMED peut s’insérer dans plusieurs processus métiers nécessitant l’identification des usages déclarés en vue d’une facturation des droits d’auteur.',
       ],
@@ -136,7 +136,7 @@ export const exmedCaseStudy: CaseStudy = {
       kind: 'feature',
       id: 'identite',
       label: 'Identité visuelle',
-      title: { text: 'Refonte et', accent: 'création de logo.' },
+      title: { text: 'Refonte et', accent: 'création de logo' },
       body: [
         'Création d’un moodboard afin de définir l’univers visuel et les inspirations du projet.',
         'Conception du nouveau logo sur Illustrator, en proposant deux pistes graphiques.',
@@ -254,7 +254,7 @@ export const exmedCaseStudy: CaseStudy = {
       kind: 'steps',
       id: 'processus',
       label: 'Récapitulatif',
-      title: { text: 'Le', accent: 'processus.' },
+      title: { text: 'Le', accent: 'processus' },
       steps: [
         { label: 'Moodboard', body: 'Définition de l’univers visuel et des inspirations.' },
         { label: 'Logo', body: 'Conception du nouveau logo avec deux pistes graphiques.' },

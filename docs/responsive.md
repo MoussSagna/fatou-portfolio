@@ -27,7 +27,8 @@ Home et page projet : **aucun scroll horizontal**, y compris pendant les animati
 ## Navigation mobile : tab bar sticky (pas de hamburger)
 
 Sous `lg`, les liens du header sont masqués et remplacés par `MobileTabBar` : Accueil, Projets,
-Parcours, Contact. Le header garde le logo et « Discutons » (hauteur 80 px).
+Contact (« Parcours » retiré le 2026-09-29, aussi du header et du footer). Le header ne garde que le logo (hauteur 80 px) ; le bouton « Discutons » a été retiré le
+2026-09-29.
 
 - Pilule flottante centrée (`max-w-md`), fond `nude-50` translucide + flou, bordure blanche,
   `shadow-float`, `z-50`.
@@ -43,20 +44,20 @@ Parcours, Contact. Le header garde le logo et « Discutons » (hauteur 80 px).
 
 ## Adaptations par section
 
-| Section         | Mobile / tablette                                                                                               |
-| --------------- | --------------------------------------------------------------------------------------------------------------- |
-| Header          | Logo + « Discutons » ; entre `lg` et `xl`, liens espacés de 32 px (56 px dès `xl`)                              |
-| Hero            | Eyebrow → titre → texte → CTA → bitmoji (82 % de large) ; indicateur « scroll » masqué ; CTA sur 1 ligne à 1024 |
-| En-têtes        | L'eyebrow ne passe jamais à la ligne : le filet se rétracte en premier (`min-w-0`), approche 0,3 em < `sm`      |
-| Projets         | 1 colonne, puis 3 dès `md` ; carte entière cliquable                                                            |
-| Compétences     | 2 colonnes (tuiles 4:3), 3 dès `sm`                                                                             |
-| Logiciels       | Grille `auto-fit` 72 px min : 3 colonnes à 320 px, 4 dès ≈ 360 px, 8 dès `md`, rangée « dock » dès `lg`         |
-| Parcours        | Frise simplifiée (pastilles 72 px, sans trait horizontal) ; titre sur une ligne seulement dès `xl`              |
-| Contact         | Carte pleine largeur, CTA sous le texte ; traits décoratifs gardés dans la carte                                |
-| Footer          | Empilé (liens de 44 px de haut) ; entre `lg` et `xl` sur 2 rangées, 1 seule dès `xl`                            |
-| Page projet     | Texte puis visuel pour chaque chapitre ; titre 44 → 68 px sous `sm` (tient jusqu'à « MINDFUL » à 320 px)        |
-| Outils (projet) | 3 colonnes, une ligne dès `sm` ; tuiles 96 px entre `lg` et `xl`                                                |
-| Page EXMED      | Voir [project-pages.md](project-pages.md#responsive-1) : hero portrait < `sm`, infos 2 × 2, une colonne         |
+| Section         | Mobile / tablette                                                                                          |
+| --------------- | ---------------------------------------------------------------------------------------------------------- |
+| Header          | Logo seul ; dès `lg`, liens alignés à droite, espacés de 32 px (56 px dès `xl`)                            |
+| Hero            | Titre → texte → CTA → bitmoji (82 % de large) ; CTA sur 1 ligne à 1024                                     |
+| En-têtes        | L'eyebrow ne passe jamais à la ligne : le filet se rétracte en premier (`min-w-0`), approche 0,3 em < `sm` |
+| Projets         | 1 colonne, puis 3 dès `md` ; carte entière cliquable                                                       |
+| Compétences     | 2 colonnes (tuiles 4:3), 3 dès `sm`                                                                        |
+| Logiciels       | 3 colonnes (2 rangées), une ligne de 6 dès `sm`, rangée « dock » dès `lg`                                  |
+| Parcours        | Frise simplifiée (pastilles 72 px, sans trait horizontal) ; titre sur une ligne seulement dès `xl`         |
+| Contact         | Carte pleine largeur, CTA sous le texte ; traits décoratifs gardés dans la carte                           |
+| Footer          | Empilé (liens de 44 px de haut) ; entre `lg` et `xl` sur 2 rangées, 1 seule dès `xl`                       |
+| Page projet     | Texte puis visuel pour chaque chapitre ; titre 44 → 68 px sous `sm` (tient jusqu'à « MINDFUL » à 320 px)   |
+| Outils (projet) | 3 colonnes, une ligne dès `sm` ; tuiles 96 px entre `lg` et `xl`                                           |
+| Page EXMED      | Voir [project-pages.md](project-pages.md#responsive-1) : hero portrait < `sm`, infos 2 × 2, une colonne    |
 
 ## Hero « above the fold »
 

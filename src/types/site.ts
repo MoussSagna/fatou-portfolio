@@ -1,7 +1,8 @@
 import type { LucideIcon } from 'lucide-react'
 
 /** Section anchors of the one-page landing. Keep in sync with <section id>. */
-export type SectionId = 'accueil' | 'a-propos' | 'projets' | 'parcours' | 'contact'
+export type SectionId =
+  'accueil' | 'a-propos' | 'competences' | 'parcours' | 'logiciels' | 'projets' | 'contact'
 
 export interface NavItem {
   id: SectionId

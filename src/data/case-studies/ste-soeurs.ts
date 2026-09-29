@@ -108,7 +108,7 @@ export const steSoeursCaseStudy: CaseStudy = {
       kind: 'issues',
       id: 'besoin',
       label: 'Problématique',
-      title: { text: 'Le', accent: 'besoin.' },
+      title: { text: 'Le', accent: 'besoin' },
       lead: 'Le portail existant présentait plusieurs limites.',
       items: [
         {
@@ -143,7 +143,7 @@ export const steSoeursCaseStudy: CaseStudy = {
       kind: 'feature',
       id: 'interface',
       label: 'UI Design',
-      title: { text: 'La nouvelle', accent: 'interface.' },
+      title: { text: 'La nouvelle', accent: 'interface' },
       body: [
         'La landing page du portail et la déclaration d’un programme : recherche d’œuvres, ajout d’une œuvre non référencée et constitution de la setlist.',
       ],
@@ -165,7 +165,7 @@ export const steSoeursCaseStudy: CaseStudy = {
       kind: 'feature',
       id: 'design-system',
       label: 'Composants',
-      title: { text: 'Design', accent: 'System.' },
+      title: { text: 'Design', accent: 'System' },
       tinted: true,
       body: [
         'Un design system réutilisable a été pensé pour harmoniser les composants et faciliter l’évolution du produit.',
@@ -185,36 +185,42 @@ export const steSoeursCaseStudy: CaseStudy = {
           items: [{ image: image.alerts, caption: 'Alertes et confirmations', zoomable: true }],
         },
       ],
-    },
-    {
-      kind: 'feature',
-      id: 'harmonisation',
-      label: 'Harmonisation UI',
-      title: { text: 'Harmoniser', accent: 'l’expérience.' },
-      body: [
-        'Des composants UI non harmonisés étaient l’une des limites du portail : boutons, champs et listes sont désormais réunis dans la documentation du portail.',
-      ],
-      figures: [
+      subsections: [
         {
-          layout: 'feature',
-          items: [
-            { image: image.buttons, label: 'Boutons', caption: 'Default et hover', zoomable: true },
-            {
-              image: image.forms,
-              label: 'Champs',
-              caption: 'Default, focus, saisie, valide',
-              zoomable: true,
-            },
+          id: 'harmonisation',
+          title: { text: 'Harmoniser', accent: 'l’expérience' },
+          body: [
+            'Des composants UI non harmonisés étaient l’une des limites du portail : boutons, champs et listes sont désormais réunis dans la documentation du portail.',
           ],
-        },
-        {
-          layout: 'wide',
-          items: [
+          keywords: ['Boutons', 'Champs', 'Listes'],
+          figures: [
             {
-              image: image.lists,
-              label: 'Listes',
-              caption: 'Lignes de programmes et leurs actions',
-              zoomable: true,
+              layout: 'feature',
+              items: [
+                {
+                  image: image.buttons,
+                  label: 'Boutons',
+                  caption: 'Default et hover',
+                  zoomable: true,
+                },
+                {
+                  image: image.forms,
+                  label: 'Champs',
+                  caption: 'Default, focus, saisie, valide',
+                  zoomable: true,
+                },
+              ],
+            },
+            {
+              layout: 'wide',
+              items: [
+                {
+                  image: image.lists,
+                  label: 'Listes',
+                  caption: 'Lignes de programmes et leurs actions',
+                  zoomable: true,
+                },
+              ],
             },
           ],
         },
@@ -236,7 +242,7 @@ export const steSoeursCaseStudy: CaseStudy = {
       kind: 'steps',
       id: 'processus',
       label: 'Process',
-      title: { text: 'Le', accent: 'processus.' },
+      title: { text: 'Le', accent: 'processus' },
       steps: [
         {
           label: 'Analyse de l’existant',

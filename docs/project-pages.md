@@ -77,6 +77,9 @@ l'ordre d'affichage (désactivable avec `chapterNumbers: false`).
   reste collée à l'écran en `lg`), `pair` (7/5 décalés).
 - `label` sur un visuel : grand mot en capitales au-dessus (« Boutons », « Champs »…).
 - `feature` accepte `tinted` (bandeau nude).
+- `feature` accepte `subsections[]` : sous-parties du même chapitre (titre H3, texte, `keywords`
+  optionnels, groupes de visuels), rendues sous les visuels dans la même `<section>`, séparées
+  par un filet.
 - `lib/responsive-image.ts` : `responsiveImage(name, widths, size, alt)` construit les srcset à
   partir des fichiers générés par `npm run images` (erreur explicite si un fichier manque).
 
@@ -235,8 +238,9 @@ Les icônes de la planche ne sont pas présentées (petites et peu lisibles une 
 Hero (wide : `landing-page.png` entière, ratio d'origine ; la carte de la Home en montre la partie gauche) → Le projet (`intro` + écran Setlists) → Le besoin (`issues` :
 Expérience, Identité, UI, Design System) → L'objectif (`statement` centré) → La nouvelle
 interface (`feature` : déclaration d'un programme + landing collée à droite) → Design System
-(`feature` teinté : date picker, switch & stepper, typographie, alertes) → Harmoniser
-l'expérience (`feature` avec grands libellés : Boutons, Champs, Listes) → Modularité
+(`feature` teinté : date picker, switch & stepper, typographie, alertes, puis sa sous-partie
+**Harmoniser l'expérience** — `subsections` : filet, titre H3, « Boutons · Champs · Listes »,
+visuels à grands libellés ; même bande, une seule section depuis le 2026-09-28) → Modularité
 (`statement` aligné à gauche, bandeau) → Le processus (`steps`, 4 colonnes) → Outil (Figma) →
 Informations → conclusion → navigation.
 

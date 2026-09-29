@@ -1,6 +1,4 @@
-import { ArrowUpRight } from 'lucide-react'
 import { Link, useLocation } from 'react-router'
-import { Button } from '@/components/ui/button'
 import { primaryNav } from '@/data/navigation'
 import { Logo } from './Logo'
 
@@ -31,13 +29,6 @@ export function SiteHeader() {
           ))}
         </ul>
       </nav>
-
-      <Button asChild className="h-10 px-5 text-sm lg:h-14 lg:px-9 lg:text-base">
-        <Link to="/#contact">
-          Discutons
-          <ArrowUpRight className="transition-transform duration-300 group-hover/button:translate-x-0.5 group-hover/button:-translate-y-0.5" />
-        </Link>
-      </Button>
     </header>
   )
 }

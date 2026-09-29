@@ -105,9 +105,23 @@ export function Timeline({ items }: { items: Experience[] }) {
                 {item.role}
               </h3>
               <p className="mt-1 text-[0.9375rem] text-ink-muted lg:text-lg">{item.company}</p>
-              <p className="mt-2 max-w-[31rem] text-[0.9375rem] leading-relaxed text-ink-muted/85 lg:text-lg">
-                {item.description}
-              </p>
+              {item.description && (
+                <p className="mt-2 max-w-[31rem] text-[0.9375rem] leading-relaxed text-ink-muted/85 lg:text-lg">
+                  {item.description}
+                </p>
+              )}
+              {item.missions && (
+                <ul className="mt-3 flex max-w-[31rem] flex-col gap-1.5">
+                  {item.missions.map((mission) => (
+                    <li
+                      key={mission}
+                      className="relative pl-4 text-[0.9375rem] leading-snug text-ink-muted/85 before:absolute before:top-[0.55em] before:left-0 before:size-1.5 before:rounded-full before:bg-terracotta/60 lg:text-base"
+                    >
+                      {mission}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </motion.div>
           </motion.li>
         )

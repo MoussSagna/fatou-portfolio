@@ -24,8 +24,7 @@ export function ContactSection() {
             <p className="mt-5 max-w-[34rem] text-lead text-ink-muted lg:mt-6 lg:max-w-none lg:text-[1.3125rem]">
               Je suis toujours ouverte à de nouvelles opportunités,{' '}
               <br className="hidden lg:inline" />
-              des collaborations ou simplement à échanger autour d’un café virtuel&nbsp;
-              <span aria-hidden="true">☕</span>
+              des collaborations ou simplement à échanger
             </p>
           </div>
 

@@ -7,8 +7,11 @@ export interface Experience {
   /** End year, or null for the current position ("Aujourd’hui"). */
   end: number | null
   role: string
-  /** Company or context (Freelance, Studio créatif…). */
+  /** Company or organisation. */
   company: string
-  description: string
+  /** Optional one-line summary of the position. */
+  description?: string
+  /** Main tasks, shown as a short list. */
+  missions?: string[]
   icon: LucideIcon
 }
