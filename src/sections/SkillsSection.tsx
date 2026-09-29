@@ -23,7 +23,7 @@ export function SkillsSection() {
             expériences intuitives, esthétiques et impactantes.
           </p>
           <Button asChild variant="outline" size="lg" className="mt-8 font-semibold lg:mt-9">
-            <a href={site.cvUrl} download>
+            <a href={site.cvUrl} download="CV Fatou Fofana.pdf">
               Télécharger mon CV
               <Download className="transition-transform duration-300 group-hover/button:translate-y-0.5" />
               <ChevronRight className="-ml-1 size-3.5 opacity-60" aria-hidden="true" />

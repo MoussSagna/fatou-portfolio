@@ -5,7 +5,7 @@ export const site: SiteIdentity = {
   name: 'Fatou',
   role: 'UI/UX Designer',
   email: 'hello@fatou.design',
-  cvUrl: '#',
+  cvUrl: '/cv-fatou-fofana.pdf',
   introVideo: { url: '#', duration: '1 min' },
   socials: [
     { id: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/' },
