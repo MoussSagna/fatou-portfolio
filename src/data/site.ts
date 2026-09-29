@@ -8,10 +8,7 @@ export const site: SiteIdentity = {
   cvUrl: '/cv-fatou-fofana.pdf',
   introVideo: { url: '#', duration: '1 min' },
   socials: [
-    { id: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/' },
-    { id: 'instagram', label: 'Instagram', href: 'https://www.instagram.com/' },
-    { id: 'behance', label: 'Behance', href: 'https://www.behance.net/' },
-    { id: 'dribbble', label: 'Dribbble', href: 'https://dribbble.com/' },
+    { id: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/fatou-fofana-124396139/' },
   ],
   tagline: ['Designing', 'a kinder', 'digital world.'],
   // Pages to create before going live.
