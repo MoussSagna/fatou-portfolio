@@ -87,3 +87,32 @@ export const projectsSeo: ProjectSeo[] = [
     client: 'SACEM',
   },
 ]
+
+export interface LegalSeo extends PageSeo {
+  /** Route path (matches `LegalDocument.path` in data/legal.ts). */
+  path: string
+  /** Page name (breadcrumb). */
+  title: string
+}
+
+/** Legal pages linked from the footer. They reuse the home share image. */
+export const legalSeo: LegalSeo[] = [
+  {
+    path: '/confidentialite',
+    title: 'Politique de confidentialité',
+    metaTitle: 'Politique de confidentialité | Fatou Fofana',
+    metaDescription:
+      'Politique de confidentialité du portfolio de Fatou Fofana : aucune donnée collectée par le site, aucun cookie, prise de contact par e-mail et droits RGPD.',
+    ogImage: '/og/home.jpg',
+    ogImageAlt: homeSeo.ogImageAlt,
+  },
+  {
+    path: '/conditions-utilisation',
+    title: 'Conditions d’utilisation',
+    metaTitle: 'Conditions d’utilisation | Fatou Fofana',
+    metaDescription:
+      'Conditions d’utilisation du portfolio de Fatou Fofana, UI/UX Designer : accès au site, propriété intellectuelle, téléchargement du CV et liens externes.',
+    ogImage: '/og/home.jpg',
+    ogImageAlt: homeSeo.ogImageAlt,
+  },
+]

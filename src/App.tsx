@@ -6,10 +6,14 @@ import { ScrollManager } from '@/components/layout/ScrollManager'
 import { SiteFooter } from '@/components/layout/SiteFooter'
 import { SiteHeader } from '@/components/layout/SiteHeader'
 import { HomePage } from '@/pages/HomePage'
+import { legalSeo } from '@/seo/data'
 
-// Case studies load on demand: the home page does not ship their code and data.
+// Case studies and legal pages load on demand: the home page does not ship their code and data.
 const ProjectPage = lazy(() =>
   import('@/pages/ProjectPage').then((module) => ({ default: module.ProjectPage })),
+)
+const LegalRoute = lazy(() =>
+  import('@/pages/LegalPage').then((module) => ({ default: module.LegalRoute })),
 )
 
 export default function App() {
@@ -36,6 +40,17 @@ export default function App() {
               </Suspense>
             }
           />
+          {legalSeo.map(({ path }) => (
+            <Route
+              key={path}
+              path={path}
+              element={
+                <Suspense fallback={<div className="min-h-svh" />}>
+                  <LegalRoute />
+                </Suspense>
+              }
+            />
+          ))}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>

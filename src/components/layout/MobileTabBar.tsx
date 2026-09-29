@@ -14,9 +14,12 @@ const NO_IDS: readonly SectionId[] = []
  * home page; on a project page "Projets" stays active.
  */
 export function MobileTabBar() {
-  const isHome = useLocation().pathname === '/'
+  const { pathname } = useLocation()
+  const isHome = pathname === '/'
   const spied = useActiveSection(isHome ? TAB_IDS : NO_IDS)
-  const active: SectionId | undefined = isHome ? spied : 'projets'
+  // Legal pages have no matching tab.
+  const onProjectPage = pathname.startsWith('/projects/')
+  const active: SectionId | undefined = isHome ? spied : onProjectPage ? 'projets' : undefined
 
   return (
     <nav

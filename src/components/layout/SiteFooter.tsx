@@ -73,9 +73,9 @@ export function SiteFooter() {
           <ul className="flex gap-8">
             {site.legal.map((link) => (
               <li key={link.label}>
-                <a href={link.href} className={cn(linkClass, 'touch-hit')}>
+                <Link to={link.href} className={cn(linkClass, 'touch-hit')}>
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

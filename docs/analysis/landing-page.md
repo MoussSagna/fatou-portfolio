@@ -37,7 +37,7 @@ Structure verticale de la page (ordre) :
 
 Voir [colors.md](../colors.md). Principal écart avec la palette de départ : le terracotta de la
 maquette est **plus profond** (`#9E5442` vs `#B86B55`), et le point du logo est un **corail**
-(`#DE7E69`).
+(`#517367`).
 
 ## Typographie observée
 

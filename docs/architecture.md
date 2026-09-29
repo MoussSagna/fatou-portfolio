@@ -16,7 +16,8 @@
 | sharp (dev)                     | Script d'optimisation des images                                          |
 | potrace + svgo (dev)            | Génération du bitmoji vectoriel (`scripts/bitmoji-vector/`)               |
 
-Routing : `react-router` v7 (`/` et `/projects/:slug`), voir [project-pages.md](project-pages.md).
+Routing : `react-router` v7 (`/`, `/projects/:slug`, `/confidentialite`, `/conditions-utilisation`),
+voir [project-pages.md](project-pages.md) et [Pages légales](#pages-légales).
 
 ## Arborescence
 
@@ -71,3 +72,17 @@ via `npx shadcn@latest add …`), `clsx` et `tailwind-merge` (remplacés par `cn
 
 Attention : tout nouveau token de taille de texte (`--text-*`) doit être déclaré dans
 `src/lib/utils.ts`, sinon `cn` le confond avec une couleur et le supprime.
+
+## Pages légales
+
+`/confidentialite` et `/conditions-utilisation` (liens « Confidentialité » et « Conditions » du
+footer, `site.legal`).
+
+- Contenu : `data/legal.ts` (type `LegalDocument`, `types/legal.ts`) ; gabarit :
+  `pages/LegalPage.tsx`, chargé à la demande. Les routes sont générées depuis `legalSeo`
+  (`seo/data.ts`), qui fournit aussi le `<head>`, la page HTML statique et l'entrée du sitemap.
+- Seuls des faits vérifiés dans le projet sont affirmés (aucun formulaire, cookie ni outil
+  d'audience, polices auto-hébergées). Les informations manquantes sont des placeholders
+  `[À compléter : …]`, surlignés à l'écran : **hébergeur à renseigner avant la mise en ligne**.
+  L'e-mail vient de `site.email` (encore provisoire).
+- Tab bar mobile : aucun onglet actif sur ces pages.

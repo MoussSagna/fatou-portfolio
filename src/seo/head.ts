@@ -3,7 +3,16 @@
  * functions: used by the client (useSeo) and by the build (per-route HTML,
  * sitemap). See docs/seo.md.
  */
-import { homeSeo, person, projectsSeo, siteSeo, type PageSeo, type ProjectSeo } from './data.ts'
+import {
+  homeSeo,
+  legalSeo,
+  person,
+  projectsSeo,
+  siteSeo,
+  type LegalSeo,
+  type PageSeo,
+  type ProjectSeo,
+} from './data.ts'
 
 export interface HeadTag {
   /** `name` (description, twitter:*) or `property` (og:*). */
@@ -123,6 +132,28 @@ export function projectHead(siteUrl: string, project: ProjectSeo): HeadData {
   ])
 }
 
+export function legalHead(siteUrl: string, page: LegalSeo): HeadData {
+  const home = absoluteUrl(siteUrl, '/')
+  return pageHead(siteUrl, page.path, page, 'website', [
+    ...identityGraph(siteUrl),
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: home },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: page.title,
+          item: absoluteUrl(siteUrl, page.path),
+        },
+      ],
+    },
+  ])
+}
+
+export const findLegalSeo = (path: string | undefined) =>
+  legalSeo.find((page) => page.path === path)
+
 export const findProjectSeo = (slug: string | undefined) =>
   projectsSeo.find((project) => project.slug === slug)
 
@@ -134,6 +165,7 @@ export function publicRoutes(siteUrl: string): { path: string; head: HeadData }[
       path: projectPath(project),
       head: projectHead(siteUrl, project),
     })),
+    ...legalSeo.map((page) => ({ path: page.path, head: legalHead(siteUrl, page) })),
   ]
 }
 

@@ -14,11 +14,11 @@
   --blush: #f0d6ca; /* decorative blobs */
   --line: #e2d2c8; /* hairlines, outlines */
   --terracotta: #517367; /* accent words, emphasis */
-  --coral: #de7e69; /* logo dot, small decorative strokes */
+  --coral: #517367; /* logo dot, small decorative strokes */
   --olive: #4b4a33; /* illustration echo (rare) */
   --ink: #111111; /* titles, primary buttons */
   --ink-muted: #4d4845; /* body copy */
-  --white: #ffffff;
+  --white: #795a5a;
 
   /* shadcn semantic aliases */
   --background: var(--nude-100);

@@ -99,6 +99,7 @@ Un `@graph` par page, uniquement avec des informations fournies :
 | `/`                                               | `<head>` Home                                                                      | Home                         |
 | `/projects/exmed`                                 | `<head>` EXMED                                                                     | Page EXMED                   |
 | `/projects/ste-soeurs`                            | `<head>` Ste SŒURS                                                                 | Page Ste SŒURS               |
+| `/confidentialite`, `/conditions-utilisation`     | `<head>` de la page légale (`legalSeo`, image de partage de la Home)               | Page légale                  |
 | `/projects/poppy`, `/lumiere`, `/mindful`, autres | fallback SPA (`index.html`, `<head>` Home, canonical `/`) ou 404 selon l'hébergeur | Redirection vers `/#projets` |
 
 ## Images

@@ -1,5 +1,12 @@
 import { useEffect, useMemo } from 'react'
-import { findProjectSeo, homeHead, projectHead, type HeadData } from './head.ts'
+import {
+  findLegalSeo,
+  findProjectSeo,
+  homeHead,
+  legalHead,
+  projectHead,
+  type HeadData,
+} from './head.ts'
 
 /**
  * Origin used for canonical / Open Graph URLs: VITE_SITE_URL when set (see
@@ -43,12 +50,14 @@ export function useSeo(head: HeadData) {
   }, [head])
 }
 
-/** Home head, or a project head by slug; renders nothing. */
-export function Seo({ project }: { project?: string }) {
+/** Home head, a project head by slug or a legal page head by path; renders nothing. */
+export function Seo({ project, legal }: { project?: string; legal?: string }) {
   const head = useMemo(() => {
-    const seo = findProjectSeo(project)
-    return seo ? projectHead(SITE_URL, seo) : homeHead(SITE_URL)
-  }, [project])
+    const projectSeo = findProjectSeo(project)
+    if (projectSeo) return projectHead(SITE_URL, projectSeo)
+    const legalPageSeo = findLegalSeo(legal)
+    return legalPageSeo ? legalHead(SITE_URL, legalPageSeo) : homeHead(SITE_URL)
+  }, [project, legal])
   useSeo(head)
   return null
 }

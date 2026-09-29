@@ -11,7 +11,7 @@ ajustées pour le contraste. Source de vérité : `src/styles/globals.css`.
 | `blush`          | `#F0D6CA` | —                 | Blobs décoratifs                         |
 | `line`           | `#E2D2C8` | —                 | Filets, bordures                         |
 | `terracotta`     | `#517367` | `#B86B55`         | Mots accentués, focus, sélection         |
-| `coral`          | `#DE7E69` | `#D4937D`         | Point du logo, petits traits décoratifs  |
+| `coral`          | `#517367` | `#517367`         | Point du logo, petits traits décoratifs  |
 | `olive`          | `#4B4A33` | `#5B6040`         | Écho de l'illustration (usage rare)      |
 | `ink`            | `#111111` | `#111111`         | Titres, boutons pleins                   |
 | `ink-muted`      | `#4D4845` | `#5F5A57`         | Texte courant                            |
