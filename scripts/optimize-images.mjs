@@ -6,6 +6,7 @@
 import { mkdir } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import sharp from 'sharp'
+import { phoneBoard } from './phone-mockup.mjs'
 
 const SOURCE_DIR = new URL('../assets-src/', import.meta.url)
 const OUTPUT_DIR = new URL('../src/assets/images/', import.meta.url)
@@ -19,23 +20,64 @@ const STE_DECLARE = '2.2 - Ste - Declarer un programme - ajout oeuvre non ref.pn
 
 /**
  * @param {string} folder
- * @returns {(entries: [string, string, number[], import('sharp').Region?][]) => typeof IMAGES}
+ * @returns {(entries: [string, string, number[], import('sharp').Region?, string?][]) => typeof IMAGES}
  */
 const fromFolder = (folder) => (entries) =>
-  entries.map(([name, file, widths, extract]) => ({
+  entries.map(([name, file, widths, extract, flatten]) => ({
     name,
     file: `projects/${folder}/${file}`,
     widths,
     extract,
+    flatten,
   }))
 
 const exmed = fromFolder('EXMED')
 const steSoeurs = fromFolder('STE-SOEURS')
+const sugarMap = fromFolder('SUGAR-MAP')
+
+/** SugarMap backgrounds: app screens and presentation boards (sampled from the exports). */
+const SUGAR_SCREEN = '#faf7f2'
+const SUGAR_BOARD = '#fcf7ee'
+const sugarFile = (file) => fileURLToPath(new URL(`projects/SUGAR-MAP/${file}`, SOURCE_DIR))
+
+/**
+ * SugarMap screens as shown in a phone: 390 px wide once the export margins
+ * (drop shadow) are cropped. `offset` = scroll position, `nav` = height of the
+ * bottom navigation bar, kept at the bottom of the phone. Same values as
+ * src/data/case-studies/sugar-map.ts.
+ */
+const SUGAR_PHONE = {
+  splash: { file: sugarFile('0- Homepage.png'), background: SUGAR_SCREEN },
+  onboarding: { file: sugarFile('1- Onboarding.png'), background: SUGAR_SCREEN },
+  home: { file: sugarFile('2.2- Homepage.png'), background: SUGAR_SCREEN, offset: 40, nav: 80 },
+}
+
+/** Hero board: the first three screens (0, 1, 2.2) in phones, built at 2160 px so screens stay at export size. */
+const sugarHero = await phoneBoard({
+  width: 2160,
+  height: 1200,
+  background: SUGAR_BOARD,
+  phones: [
+    { ...SUGAR_PHONE.splash, width: 450, left: 297, top: 168 },
+    { ...SUGAR_PHONE.onboarding, width: 450, left: 855, top: 108 },
+    { ...SUGAR_PHONE.home, width: 450, left: 1413, top: 168 },
+  ],
+})
+
+/** Home card (217:235): the onboarding screen in a phone. */
+const sugarCard = await phoneBoard({
+  width: 868,
+  height: 940,
+  background: SUGAR_BOARD,
+  phones: [{ ...SUGAR_PHONE.onboarding, width: 404, left: 232, top: 52 }],
+})
 
 /**
  * `extract` crops the source first (px, in source coordinates) — used to pull
- * single components out of a large design board.
- * @type {{ name: string, file: string, widths: number[], extract?: import('sharp').Region }[]}
+ * single components out of a large design board. `flatten` fills transparent
+ * areas (rounded corners of an export) with a colour. `input` replaces `file`
+ * with an image built by this script.
+ * @type {{ name: string, file?: string, input?: Buffer, widths: number[], extract?: import('sharp').Region, flatten?: string }[]}
  */
 const IMAGES = [
   { name: 'bitmoji', file: 'bitmoji.png', widths: [768, 1200, 1536] },
@@ -86,13 +128,57 @@ const IMAGES = [
     ['ste-doc-alerts', STE_DOC, [1245, 2490], { left: 205, top: 8990, width: 2490, height: 830 }],
     ['ste-doc-typography', STE_DOC, [725], { left: 205, top: 9860, width: 725, height: 470 }],
   ]),
+
+  // SugarMap — real exports from assets-src/projects/SUGAR-MAP (@1x). `interface.png` is the
+  // layout reference of the screens board and is not published.
+  { name: 'sugarmap-hero', input: sugarHero, widths: [960, 1440, 2160] },
+  { name: 'project-sugar-map', input: sugarCard, widths: [434, 868] },
+  ...sugarMap([
+    // Numbered screens (phone mock-ups), without the drop-shadow margins of the exports.
+    ['sugarmap-onboarding', '1- Onboarding.png', [390], undefined, SUGAR_SCREEN],
+    ['sugarmap-home', '2.2- Homepage.png', [390], undefined, SUGAR_SCREEN],
+    ['sugarmap-shop', '3-boutique.png', [390], undefined, SUGAR_SCREEN],
+    [
+      'sugarmap-favorites',
+      '4-Favoris.png',
+      [390],
+      { left: 38, top: 13, width: 390, height: 949 },
+      SUGAR_SCREEN,
+    ],
+    ['sugarmap-filters', '5-filtres.png', [390], undefined, SUGAR_SCREEN],
+    [
+      'sugarmap-route',
+      '6-itineraire.png',
+      [390],
+      { left: 4, top: 1, width: 390, height: 944 },
+      SUGAR_SCREEN,
+    ],
+    [
+      'sugarmap-map',
+      '7-map.png',
+      [390],
+      { left: 6, top: 0, width: 390, height: 884 },
+      SUGAR_SCREEN,
+    ],
+    // Presentation boards: rounded corners filled with the board colour.
+    ['sugarmap-identity', 'identite-visuelle.png', [960, 1280], undefined, SUGAR_BOARD],
+    [
+      'sugarmap-design-system',
+      'design-system.png',
+      [720, 1055],
+      { left: 4, top: 0, width: 1055, height: 805 },
+      SUGAR_BOARD,
+    ],
+    ['sugarmap-ai', 'Ia et outils.png', [960, 1280], undefined, SUGAR_BOARD],
+  ]),
 ]
 
 await mkdir(OUTPUT_DIR, { recursive: true })
 
 for (const image of IMAGES) {
-  let source = sharp(fileURLToPath(new URL(image.file, SOURCE_DIR)))
+  let source = sharp(image.input ?? fileURLToPath(new URL(image.file, SOURCE_DIR)))
   if (image.extract) source = source.extract(image.extract)
+  if (image.flatten) source = source.flatten({ background: image.flatten })
   for (const width of image.widths) {
     const resized = source.clone().resize({ width, withoutEnlargement: true })
     const base = fileURLToPath(new URL(`${image.name}-${width}`, OUTPUT_DIR))
@@ -110,7 +196,7 @@ for (const image of IMAGES) {
 const OG_DIR = new URL('../public/og/', import.meta.url)
 const OG_SIZE = { width: 1200, height: 630 }
 
-/** @type {{ name: string, file: string, extract?: import('sharp').Region, contain?: boolean }[]} */
+/** @type {{ name: string, file?: string, input?: Buffer, extract?: import('sharp').Region, contain?: boolean }[]} */
 const OG_IMAGES = [
   // Home: the hero illustration, whole, on the site background.
   { name: 'home', file: 'bitmoji.png', contain: true },
@@ -121,12 +207,14 @@ const OG_IMAGES = [
     // The landing page, as in the hero.
     file: 'projects/STE-SOEURS/landing-page.png',
   },
+  // The hero board (three phones).
+  { name: 'sugar-map', input: sugarHero },
 ]
 
 await mkdir(OG_DIR, { recursive: true })
 
 for (const image of OG_IMAGES) {
-  let source = sharp(fileURLToPath(new URL(image.file, SOURCE_DIR)))
+  let source = sharp(image.input ?? fileURLToPath(new URL(image.file, SOURCE_DIR)))
   if (image.extract) source = source.extract(image.extract)
   await source
     .resize({

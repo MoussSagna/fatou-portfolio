@@ -29,8 +29,9 @@ export interface ProjectSeo extends PageSeo {
   title: string
   /** Canonical path, when it differs from /projects/<slug>. */
   canonical?: string
-  year: string
-  client: string
+  /** Omitted when unknown: never guessed. */
+  year?: string
+  client?: string
 }
 
 export const person: PersonSeo = {
@@ -85,6 +86,16 @@ export const projectsSeo: ProjectSeo[] = [
     ogImageAlt: 'Landing page du portail SACEM Ste SŒURS : « SACEM Portal » et bouton « Log in ».',
     year: '2023',
     client: 'SACEM',
+  },
+  {
+    slug: 'sugar-map',
+    title: 'SugarMap',
+    metaTitle: 'SugarMap — Application mobile | Fatou Fofana, UI/UX Designer',
+    metaDescription:
+      'Découvrez SugarMap, le « Google Maps des desserts » : identité visuelle, design system et interfaces de l’application mobile conçues par Fatou Fofana, UI/UX Designer.',
+    ogImage: '/og/sugar-map.jpg',
+    ogImageAlt:
+      'Trois écrans de l’application SugarMap dans des iPhone : écran de lancement, onboarding « Bievenue » et accueil.',
   },
 ]
 

@@ -35,6 +35,19 @@ export const projects: Project[] = [
     ),
     href: '/projects/ste-soeurs',
   },
+  {
+    slug: 'sugar-map',
+    title: 'SugarMap',
+    category: 'Application mobile',
+    description: 'Le Google Maps des desserts',
+    image: responsiveImage(
+      'project-sugar-map',
+      [434, 868],
+      VISUAL,
+      'Écran d’onboarding de SugarMap dans un iPhone : un donut illustré, « Bievenue » et le bouton « Suivant ».',
+    ),
+    href: '/projects/sugar-map',
+  },
 ]
 
 /** Destination of "Voir tous les projets" until a projects page exists. */

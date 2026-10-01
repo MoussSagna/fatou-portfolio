@@ -1,7 +1,8 @@
 # Pages projet (études de cas)
 
-Pages publiées : **`/projects/exmed`** (EXMED DA OPO PHONO, voir [plus bas](#exmed-da-opo-phono))
-et **`/projects/ste-soeurs`** (Ste SŒURS, voir [plus bas](#ste-sœurs)).
+Pages publiées : **`/projects/exmed`** (EXMED DA OPO PHONO, voir [plus bas](#exmed-da-opo-phono)),
+**`/projects/ste-soeurs`** (Ste SŒURS, voir [plus bas](#ste-sœurs)) et **`/projects/sugar-map`**
+(SugarMap, voir [plus bas](#sugarmap)).
 
 Les projets fictifs de la maquette (Poppy, Lumière, Mindful) ont été retirés le 2026-09-26 :
 données, étude de cas Poppy, visuels et sources. `/projects/poppy` redirige vers `/#projets`.
@@ -77,6 +78,8 @@ l'ordre d'affichage (désactivable avec `chapterNumbers: false`).
   reste collée à l'écran en `lg`), `pair` (7/5 décalés).
 - `label` sur un visuel : grand mot en capitales au-dessus (« Boutons », « Champs »…).
 - `feature` accepte `tinted` (bandeau nude).
+- `feature` accepte `board` : écrans mobiles dans des mockups iPhone, sur un panneau arrondi
+  (`ProjectScreenBoard`, voir [SugarMap](#sugarmap)).
 - `feature` accepte `subsections[]` : sous-parties du même chapitre (titre H3, texte, `keywords`
   optionnels, groupes de visuels), rendues sous les visuels dans la même `<section>`, séparées
   par un filet.
@@ -85,19 +88,21 @@ l'ordre d'affichage (désactivable avec `chapterNumbers: false`).
 
 ## Composants (`components/projects/`)
 
-| Composant                                                                                       | Rôle                                                                    |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `ProjectHero`                                                                                   | Retour aux projets, grand titre, tagline, tags, infos, visuel principal |
-| `ProjectHeroWide`                                                                               | Hero éditorial : titre en lignes, sous-titre + infos, visuel 16:10      |
-| `ProjectFigure`                                                                                 | Visuel au ratio naturel, tuile d'artwork, agrandissement (lightbox)     |
-| `ProjectIntro`, `ProjectFlow`, `ProjectFeature`, `ProjectNotes`, `ProjectSteps`, `ProjectFacts` | Blocs éditoriaux (voir tableau des kinds)                               |
-| `ProjectStory`                                                                                  | Une idée = texte + grand visuel ; alterne gauche/droite (`mediaRight`)  |
-| `ProjectHeading`                                                                                | En-tête de chapitre commun (numéro, titre accentué, texte, phrase clé)  |
-| `ProjectMedia`                                                                                  | Visuel ou emplacement, révélé au scroll                                 |
-| `ProjectProcess`                                                                                | Frise courte Research → Prototype                                       |
-| `ProjectShowcase`                                                                               | Écrans finaux : texte + grand visuel, puis rangées de 1 ou 2 visuels    |
-| `ProjectTools`                                                                                  | Logos officiels sur tuiles douces                                       |
-| `ProjectOutro`                                                                                  | `ProjectConclusion` (phrase + CTA) et `ProjectNavigation` (préc./suiv.) |
+| Composant                                                                                       | Rôle                                                                      |
+| ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `ProjectHero`                                                                                   | Retour aux projets, grand titre, tagline, tags, infos, visuel principal   |
+| `ProjectHeroWide`                                                                               | Hero éditorial : titre en lignes, sous-titre + infos, visuel 16:10        |
+| `ProjectFigure`                                                                                 | Visuel au ratio naturel, tuile d'artwork, agrandissement (lightbox)       |
+| `PhoneMockup`                                                                                   | Mockup iPhone (CSS) autour d'un export d'écran réel, barre de nav fixe    |
+| `ProjectScreenBoard`                                                                            | Panneau d'écrans en mockups : composition desktop, rangée à faire défiler |
+| `ProjectIntro`, `ProjectFlow`, `ProjectFeature`, `ProjectNotes`, `ProjectSteps`, `ProjectFacts` | Blocs éditoriaux (voir tableau des kinds)                                 |
+| `ProjectStory`                                                                                  | Une idée = texte + grand visuel ; alterne gauche/droite (`mediaRight`)    |
+| `ProjectHeading`                                                                                | En-tête de chapitre commun (numéro, titre accentué, texte, phrase clé)    |
+| `ProjectMedia`                                                                                  | Visuel ou emplacement, révélé au scroll                                   |
+| `ProjectProcess`                                                                                | Frise courte Research → Prototype                                         |
+| `ProjectShowcase`                                                                               | Écrans finaux : texte + grand visuel, puis rangées de 1 ou 2 visuels      |
+| `ProjectTools`                                                                                  | Logos officiels sur tuiles douces                                         |
+| `ProjectOutro`                                                                                  | `ProjectConclusion` (phrase + CTA) et `ProjectNavigation` (préc./suiv.)   |
 
 `ProjectNavigation` : « Projet précédent » / « Retour aux projets » / « Projet suivant », dans
 l'ordre de la Home parmi les projets publiés. N'affiche rien s'il n'y a qu'une page (cas
@@ -247,3 +252,62 @@ Informations → conclusion → navigation.
 Animations, responsive : mêmes règles qu'EXMED. Vérifié à 320, 375, 390, 414, 768, 1024 et
 1440 px (et en mouvement réduit) : aucun scroll horizontal, aucune image cassée, aucune erreur
 console. Captures : `comparisons/ste-soeurs-1440-full.png`, `comparisons/ste-soeurs-375-mobile.png`.
+
+## SugarMap
+
+Route **`/projects/sugar-map`** — application mobile, « Le Google Maps des desserts ». Outils :
+Stitch · Figma. **Client et année non fournis** : absents de la page et du JSON-LD (`year` et
+`client` sont optionnels dans `ProjectSeo`). Rôle « UI/UX Designer » et catégorie « UI Design » à
+confirmer.
+
+- Données : `data/case-studies/sugar-map.ts`, 3ᵉ carte de la Home. Navigation : Ste SŒURS ↔ SugarMap.
+- Textes : uniquement ce que montrent les exports (aucun brief rédigé fourni). Pas de section
+  « Outils » en logos : le logo Stitch n'est pas dans `assets/tools/`.
+
+### Assets (`assets-src/projects/SUGAR-MAP/`, exports @1x)
+
+| Source                          | Généré                                                                                    | Où                                         |
+| ------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------ |
+| `0- Homepage.png`, `1-`, `2.2-` | `sugarmap-hero` (960/1440/2160)                                                           | Hero : 3 iPhone (composés par sharp)       |
+| `1- Onboarding.png`             | `project-sugar-map` (434/868)                                                             | Carte Home + hero mobile (1 iPhone)        |
+| `1-` à `7-` (écrans numérotés)  | `sugarmap-onboarding`, `-home`, `-shop`, `-favorites`, `-filters`, `-route`, `-map` (390) | Interface (mockups iPhone)                 |
+| `identite-visuelle.png`         | `sugarmap-identity` (960/1280)                                                            | Identité visuelle                          |
+| `Ia et outils.png`              | `sugarmap-ai` (960/1280)                                                                  | De Stitch à Figma                          |
+| `design-system.png`             | `sugarmap-design-system` (720/1055)                                                       | Design System                              |
+| `interface.png`                 | —                                                                                         | **Référence de composition, non affichée** |
+
+Les marges d'ombre des exports 4, 6 et 7 sont rognées (écrans de 390 px de large) ; les coins
+arrondis transparents des planches sont remplis de leur couleur de fond (`flatten`). Les sources
+ne sont jamais modifiées.
+
+### Mockups iPhone
+
+- `PhoneMockup` (CSS, unités `cqw` : tout suit la largeur du téléphone) affiche 390 × 844 px de
+  l'export, au ratio d'origine, à partir de `offset` (position de défilement).
+- **Bottom Navigation Bar** : `nav` = hauteur de la barre dans l'export. Elle est découpée dans la
+  même image et maintenue en bas de l'écran du téléphone (les exports plus hauts que 844 px
+  défilent derrière). Écrans avec barre : accueil (2.2), boutique (3), favoris (4), itinéraire (6),
+  carte (7). Sans barre : lancement (0), onboarding (1), filtres (5) — aucune barre ajoutée.
+- `scripts/phone-mockup.mjs` dessine le même téléphone pour les visuels générés (hero, carte,
+  image de partage) : garder ses proportions synchronisées avec `PhoneMockup.tsx`.
+
+### Panneau « Interface » (`board`)
+
+- ≥ `lg` : composition de `interface.png` — panneau 1280 × 735, 5 colonnes décalées (1, 2, 1, 2,
+  1 téléphones), colonnes extérieures et téléphones du haut / du bas rognés par le panneau.
+  Chaque écran porte sa `position` (% du panneau) : filtres | carte / favoris | onboarding |
+  accueil / boutique | itinéraire.
+- < `lg` : mêmes téléphones, entiers, dans l'ordre des numéros de fichiers (1 → 7), dans une
+  rangée à faire défiler **dans le panneau** (scroll-snap, focusable au clavier, légende sous
+  chaque écran) ; téléphone de 62 vw, 264 px max. Aucun débordement de page.
+- L'écran 0 (lancement) n'est pas dans `interface.png` : il ouvre le hero.
+
+### Structure
+
+Hero (wide, 3 iPhone ; 1 iPhone < `sm`) → Le projet (`intro`) → Identité visuelle (`feature`) →
+De Stitch à Figma (`feature` teinté) → Design System (`feature`, `inset`) → Interface (`feature`
+
+- `board`) → Informations → conclusion → navigation.
+
+Vérifié à 320, 375, 414, 768, 1024, 1280, 1440 et 1920 px : aucun scroll horizontal, aucune
+image cassée, aucune erreur console ; EXMED et Ste SŒURS inchangés.

@@ -115,11 +115,13 @@ export function projectHead(siteUrl: string, project: ProjectSeo): HeadData {
       description: project.metaDescription,
       url,
       image: absoluteUrl(siteUrl, project.ogImage),
-      dateCreated: project.year,
+      ...(project.year && { dateCreated: project.year }),
       inLanguage: siteSeo.language,
       creator: { '@id': `${home}#person` },
       // The organization the work was produced for.
-      sourceOrganization: { '@type': 'Organization', name: project.client },
+      ...(project.client && {
+        sourceOrganization: { '@type': 'Organization', name: project.client },
+      }),
       isPartOf: { '@id': `${home}#website` },
     },
     {

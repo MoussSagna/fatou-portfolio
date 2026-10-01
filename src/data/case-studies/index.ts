@@ -3,9 +3,10 @@ import type { CaseStudy, Project } from '@/types/project'
 import { projects } from '../projects'
 import { exmedCaseStudy } from './exmed'
 import { steSoeursCaseStudy } from './ste-soeurs'
+import { sugarMapCaseStudy } from './sugar-map'
 
 /** Published case studies. Add a project: create its file here and register it below. */
-const caseStudies: CaseStudy[] = [exmedCaseStudy, steSoeursCaseStudy]
+const caseStudies: CaseStudy[] = [exmedCaseStudy, steSoeursCaseStudy, sugarMapCaseStudy]
 
 if (import.meta.env.DEV) {
   for (const { slug } of caseStudies) {

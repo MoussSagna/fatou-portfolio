@@ -145,6 +145,8 @@ export interface FeatureSection {
   title: AccentText
   body: string[]
   figures: FigureGroup[]
+  /** Mobile screens in phone mock-ups, shown under the visuals. */
+  board?: ScreenBoard
   /** Follow-up parts of the same chapter, shown under its visuals. */
   subsections?: FeatureSubsection[]
   /** Nude band behind the section. */
@@ -234,6 +236,34 @@ export interface FactsSection {
   id: string
   label: string
   facts: ProjectFact[]
+}
+
+/**
+ * A mobile screen shown in a phone mock-up. The image is the whole export
+ * (390 px wide); the phone displays 390 × 844 of it.
+ */
+export interface PhoneScreen {
+  id: string
+  image: ResponsiveImage
+  /** Short name of the screen ("Favoris"), shown under the phone below `lg`. */
+  caption: string
+  /** Scroll position: export px hidden above the top of the phone (default 0). */
+  offset?: number
+  /**
+   * Height (export px) of the bottom navigation bar of the export. The bar
+   * stays at the bottom of the phone, as in the app. Omit when the screen has none.
+   */
+  nav?: number
+  /** Top-left corner of the phone on the desktop board, in % of the board. */
+  position: { left: number; top: number }
+}
+
+/** Mobile screens in phone mock-ups, composed on a board (SugarMap). */
+export interface ScreenBoard {
+  /** Board colour behind the phones. */
+  surface: string
+  /** In reading order (the order of the swipeable row below `lg`). */
+  screens: PhoneScreen[]
 }
 
 export type ProcessChapter = ChapterText & { steps: ProcessStep[] }

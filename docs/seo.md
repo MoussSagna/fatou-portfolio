@@ -70,6 +70,8 @@ Pas de `meta keywords` : ignorée par Google et Bing, elle n'apporterait rien. P
   le prototypage et les Design Systems. »
 - **EXMED** — « EXMED DA OPO PHONO — UI/UX Design | Fatou Fofana »
 - **Ste SŒURS** — « Ste SŒURS — Refonte UI | Fatou Fofana, UI/UX Designer »
+- **SugarMap** — « SugarMap — Application mobile | Fatou Fofana, UI/UX Designer » (ni année ni
+  client fournis : `dateCreated` et `sourceOrganization` sont omis du JSON-LD)
 
 ## Données structurées (JSON-LD)
 
@@ -87,7 +89,8 @@ Un `@graph` par page, uniquement avec des informations fournies :
 
 ## Sitemap et robots
 
-- `sitemap.xml` : `/`, `/projects/exmed`, `/projects/ste-soeurs` (généré depuis `projectsSeo`).
+- `sitemap.xml` : `/`, `/projects/exmed`, `/projects/ste-soeurs`, `/projects/sugar-map` (généré
+  depuis `projectsSeo`).
   Les anciennes routes (`/projects/poppy`, `/lumiere`, `/mindful`) et toute route inexistante en
   sont exclues.
 - `robots.txt` : tout est autorisé, déclaration du sitemap.

@@ -42,6 +42,7 @@ La maquette est presque plate : préférer les aplats `nude-200` aux ombres.
 | `SocialIcon`                                   | `components/ui/social-icon.tsx`       | Logos des réseaux (Simple Icons, CC0)                                                                                                        |
 | `SiteFooter`                                   | `components/layout/SiteFooter.tsx`    | Footer ; données `data/site.ts`                                                                                                              |
 | `ProjectHero`, `ProjectStory`, `ProjectMedia`… | `components/projects/`                | Pages projet — voir [project-pages.md](project-pages.md)                                                                                     |
+| `PhoneMockup`, `ProjectScreenBoard`            | `components/projects/`                | Mockup iPhone autour d'un écran réel, panneau d'écrans — voir [project-pages.md](project-pages.md#sugarmap)                                  |
 | `Bitmoji`                                      | `components/bitmoji/Bitmoji.tsx`      | `variant="image" \| "vector"`, `animated` — voir [bitmoji.md](bitmoji.md)                                                                    |
 
 ## Règles

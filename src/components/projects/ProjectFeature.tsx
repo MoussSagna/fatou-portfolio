@@ -3,6 +3,7 @@ import type { FeatureSection, FeatureSubsection, FigureGroup } from '@/types/pro
 import { cn } from '@/lib/utils'
 import { Accented, SectionLabel } from './ProjectHeading'
 import { ProjectFigure } from './ProjectFigure'
+import { ProjectScreenBoard } from './ProjectScreenBoard'
 
 /**
  * Editorial chapter: heading (with an optional step index) next to its copy,
@@ -49,6 +50,8 @@ export function ProjectFeature({ section }: { section: FeatureSection }) {
         {section.figures.map((group) => (
           <FigureRow key={group.items.map((item) => item.image.src).join('|')} group={group} />
         ))}
+
+        {section.board && <ProjectScreenBoard board={section.board} />}
 
         {section.subsections?.map((subsection) => (
           <FeatureSubpart key={subsection.id} subsection={subsection} />
