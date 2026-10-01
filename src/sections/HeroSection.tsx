@@ -17,7 +17,7 @@ export function HeroSection() {
           initial="hidden"
           animate="visible"
           variants={stagger(0.09, 0.1)}
-          className="relative z-10 flex flex-col"
+          className="relative z-10 flex flex-col max-lg:items-center max-lg:text-center"
         >
           {/* Slightly larger than text-display, set in spaced capitals. */}
           <h1
@@ -39,7 +39,7 @@ export function HeroSection() {
 
           <motion.div
             variants={fadeUp}
-            className="mt-7 flex flex-wrap items-center gap-x-4 gap-y-4 sm:gap-x-8 lg:mt-8 lg:gap-x-5 xl:gap-x-8"
+            className="mt-7 flex flex-wrap items-center gap-x-4 gap-y-4 max-lg:justify-center sm:gap-x-8 lg:mt-8 lg:gap-x-5 xl:gap-x-8"
           >
             <Button asChild className="px-5 text-sm sm:h-14 sm:px-8 sm:text-base lg:px-6 xl:px-8">
               <a href="#projets">

@@ -20,11 +20,11 @@ export function SiteFooter() {
     <footer className="container-page pt-6 pb-[calc(env(safe-area-inset-bottom)+7.5rem)] lg:pt-8 lg:pb-14">
       <Reveal>
         {/* Wraps into two rows between lg and xl, where the single row does not fit. */}
-        <div className="flex flex-col gap-5 lg:flex-row lg:flex-wrap lg:items-center lg:justify-between lg:gap-x-8 lg:gap-y-6 xl:flex-nowrap">
+        <div className="flex flex-col gap-5 max-lg:items-center lg:flex-row lg:flex-wrap lg:items-center lg:justify-between lg:gap-x-8 lg:gap-y-6 xl:flex-nowrap">
           <Logo />
 
           <nav aria-label="Navigation du pied de page">
-            <ul className="flex flex-wrap gap-x-7 text-[0.9375rem] text-ink/85 lg:gap-x-10 lg:text-base">
+            <ul className="flex flex-wrap gap-x-7 text-[0.9375rem] text-ink/85 max-lg:justify-center lg:gap-x-10 lg:text-base">
               {primaryNav.map((item) => (
                 <li key={item.id}>
                   <Link
@@ -66,7 +66,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-3 text-sm text-ink-muted sm:flex-row sm:items-center sm:justify-between lg:mt-12 lg:text-[0.9375rem]">
+        <div className="mt-10 flex flex-col gap-3 text-sm text-ink-muted max-lg:items-center max-lg:text-center lg:mt-12 lg:flex-row lg:items-center lg:justify-between lg:text-[0.9375rem]">
           <p>
             © {year} {site.name}. Tous droits réservés.
           </p>

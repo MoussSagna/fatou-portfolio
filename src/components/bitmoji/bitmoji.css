@@ -25,6 +25,24 @@
   transform-origin: 50% 0;
 }
 
+/* Head tilt: face, hat and hand turn around the base of the neck (SVG user units). */
+.bitmoji-vector :is(#face, #hat, #hand) {
+  transform-box: view-box;
+  transform-origin: 660px 540px;
+}
+
+/*
+ * The hair already uses \`transform\` (sway), so it follows the tilt with the
+ * separate \`rotate\` + \`translate\` properties: rotating around its own root
+ * plus this shift equals rotating around the neck (0.9deg, from the bboxes).
+ */
+.bitmoji-vector #hair-back {
+  --tilt-shift: 4.52px -0.33px;
+}
+.bitmoji-vector #hair-front {
+  --tilt-shift: 0.96px -1.17px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .bitmoji-vector[data-animated] .eye-open {
     animation: bitmojiBlink 13.3s infinite;
@@ -35,21 +53,50 @@
   }
 
   .bitmoji-vector[data-animated] #hair-front {
-    animation: bitmojiHairFloat 9s ease-in-out infinite;
+    animation:
+      bitmojiHairFloat 9s ease-in-out infinite,
+      bitmojiHeadTilt 18s ease-in-out infinite;
   }
 
   /* Slower, weaker and out of phase with the front strands. */
   .bitmoji-vector[data-animated] #hair-back {
-    animation: bitmojiHairFloat 11s ease-in-out -3.5s infinite;
+    animation:
+      bitmojiHairFloat 11s ease-in-out -3.5s infinite,
+      bitmojiHeadTilt 18s ease-in-out infinite;
     --hair-sway: 0.25deg;
   }
 
+  /*
+   * "Hello" gesture, 18 s cycle starting on arrival: ~1.3 s in, the head
+   * tilts towards the hand, the eyebrows lift briefly and the smile widens;
+   * all back to rest by ~6 s, then 12 s of stillness.
+   */
+  .bitmoji-vector[data-animated] :is(#face, #hat, #hand) {
+    animation: bitmojiHeadTilt 18s ease-in-out infinite;
+  }
+
+  .bitmoji-vector[data-animated] :is(#left-eyebrow, #right-eyebrow) {
+    animation: bitmojiBrows 18s ease-in-out infinite;
+  }
+
   .bitmoji-vector[data-animated] #mouth {
-    animation: bitmojiSmile 16s ease-in-out 2s infinite;
+    animation: bitmojiSmile 18s ease-in-out infinite;
   }
 
   /* :is() with an id outranks the animation shorthands above */
-  .bitmoji-vector[data-paused] :is(.eye-open, .eye-lid, #mouth, #hair-back, #hair-front) {
+  .bitmoji-vector[data-paused]
+    :is(
+      .eye-open,
+      .eye-lid,
+      #mouth,
+      #hair-back,
+      #hair-front,
+      #face,
+      #hat,
+      #hand,
+      #left-eyebrow,
+      #right-eyebrow
+    ) {
     animation-play-state: paused;
   }
 }
@@ -119,16 +166,46 @@
   }
 }
 
-/* long rest, then a soft widening of the smile, held, released */
-@keyframes bitmojiSmile {
+/* Head tilt (1.3 s → 2.3 s), held, back by 6.3 s. The hair adds its --tilt-shift. */
+@keyframes bitmojiHeadTilt {
   0%,
-  52%,
-  90%,
+  7%,
+  35%,
+  100% {
+    rotate: 0deg;
+    translate: 0 0;
+  }
+  13%,
+  26% {
+    rotate: 0.9deg;
+    translate: var(--tilt-shift, 0 0);
+  }
+}
+
+/* Eyebrows lift ~2 px on screen (1.6 s → 2.1 s), held 1 s, lowered by 3.8 s. */
+@keyframes bitmojiBrows {
+  0%,
+  9%,
+  21%,
   100% {
     transform: none;
   }
-  60%,
-  80% {
+  11.5%,
+  17% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Soft widening of the smile (1.6 s → 2.5 s), held, released by 5.9 s. */
+@keyframes bitmojiSmile {
+  0%,
+  9%,
+  33%,
+  100% {
+    transform: none;
+  }
+  14%,
+  27% {
     transform: translateY(-0.6px) scale(1.035, 1.02);
   }
 }

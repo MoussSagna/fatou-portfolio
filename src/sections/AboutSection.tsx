@@ -5,10 +5,10 @@ import { about } from '@/data/about'
 export function AboutSection() {
   return (
     <SectionShell id="a-propos" eyebrow="À propos" className="lg:pt-20">
-      {/* Single left-aligned column: headline, then the copy on the same left edge. */}
-      <div className="mt-8 lg:mt-12">
+      {/* Single left-aligned column (centred below lg): headline, then the copy. */}
+      <div className="mt-8 max-lg:text-center lg:mt-12">
         <Reveal>
-          <h2 className="max-w-[56rem] text-[clamp(1.875rem,1.2rem+2.2vw,3.25rem)] leading-[1.08] tracking-[-0.02em] text-balance">
+          <h2 className="max-w-[56rem] text-[clamp(1.875rem,1.2rem+2.2vw,3.25rem)] leading-[1.08] tracking-[-0.02em] text-balance max-lg:mx-auto">
             Je suis {about.name},
             <br />
             {about.headline}{' '}
@@ -16,7 +16,7 @@ export function AboutSection() {
           </h2>
         </Reveal>
         <Reveal delay={0.1}>
-          <p className="mt-6 max-w-[38rem] text-lead text-ink-muted lg:mt-8 lg:text-[1.3125rem]">
+          <p className="mt-6 max-w-[38rem] text-lead text-ink-muted max-lg:mx-auto lg:mt-8 lg:text-[1.3125rem]">
             {about.body}
           </p>
         </Reveal>

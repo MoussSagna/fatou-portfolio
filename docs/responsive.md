@@ -26,7 +26,7 @@ Home et page projet : **aucun scroll horizontal**, y compris pendant les animati
 
 ## Navigation mobile : tab bar sticky (pas de hamburger)
 
-Sous `lg`, les liens du header sont masqués et remplacés par `MobileTabBar` : Accueil, Projets,
+Sous `lg`, les liens du header sont masqués et remplacés par `MobileTabBar` : Accueil, À propos (ajouté le 2026-09-29), Projets,
 Contact (« Parcours » retiré le 2026-09-29, aussi du header et du footer). Le header ne garde que le logo (hauteur 80 px) ; le bouton « Discutons » a été retiré le
 2026-09-29.
 
@@ -58,6 +58,14 @@ Contact (« Parcours » retiré le 2026-09-29, aussi du header et du footer). Le
 | Page projet     | Texte puis visuel pour chaque chapitre ; titre 44 → 68 px sous `sm` (tient jusqu'à « MINDFUL » à 320 px)   |
 | Outils (projet) | 3 colonnes, une ligne dès `sm` ; tuiles 96 px entre `lg` et `xl`                                           |
 | Page EXMED      | Voir [project-pages.md](project-pages.md#responsive-1) : hero portrait < `sm`, infos 2 × 2, une colonne    |
+
+## Textes centrés sous `lg`
+
+Depuis le 2026-09-29, sous `lg` (mobile et tablette), la Home est **centrée** : hero, en-têtes de
+section (libellé encadré de deux filets, lien d'action en dessous), À propos, Compétences,
+titre du Parcours, cartes projet (flèche sous le texte), carte contact et footer. Tout passe par
+des classes `max-lg:` : le desktop (≥ `lg`) est identique au pixel près. Restent alignés à
+gauche : la frise du parcours (listes), les pages projet et les pages légales.
 
 ## Hero « above the fold »
 

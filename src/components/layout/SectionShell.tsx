@@ -15,12 +15,16 @@ interface SectionHeaderProps {
 export function SectionHeader({ eyebrow, action, className }: SectionHeaderProps) {
   return (
     <Reveal
-      className={cn('flex flex-wrap items-center justify-between gap-x-8 gap-y-4', className)}
+      className={cn(
+        'flex flex-wrap items-center justify-between gap-x-8 gap-y-4 max-lg:flex-col max-lg:justify-center',
+        className,
+      )}
     >
-      {/* Section headers are larger and darker than the hero eyebrow (mockup). */}
+      {/* Section headers are larger and darker than the hero eyebrow (mockup).
+          Below lg the header is centred: a mirrored hairline before the label balances it. */}
       <Eyebrow
         withRule
-        className="font-semibold text-ink max-sm:tracking-[0.3em] lg:text-[0.9375rem]"
+        className="font-semibold text-ink max-lg:max-w-full max-lg:before:h-px max-lg:before:w-8 max-lg:before:bg-ink-muted/40 max-lg:before:content-[''] max-sm:tracking-[0.3em] sm:max-lg:before:w-20 lg:text-[0.9375rem]"
       >
         {eyebrow}
       </Eyebrow>

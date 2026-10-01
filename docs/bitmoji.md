@@ -84,13 +84,22 @@ utilisent des **classes** (et non des IDs), puisqu'elles existent en double.
 Tout est dans `src/components/bitmoji/bitmoji.css`. Seuls `transform` et `opacity` sont animés,
 en CSS pur (aucun JavaScript par image), et uniquement sur `.bitmoji-vector[data-animated]`.
 
-| Animation          | Cible         | Réglage                                                                                                                                                                                             |
-| ------------------ | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `bitmojiBlink`     | `.eye-open`   | Cycle de 13,3 s, 3 clignements à intervalles irréguliers (5,7 s · 0,4 s, un double · 7,2 s). Fermeture ≈ 70 ms (ease-in), maintien ≈ 50 ms, réouverture ≈ 130 ms (ease-out) : `scaleY(0.1)` + fondu |
-| `bitmojiLid`       | `.eye-lid`    | Même cycle : le trait d'œil fermé apparaît pendant la fermeture                                                                                                                                     |
-| `bitmojiHairFloat` | `#hair-front` | 9 s : repos → `skewX(0.55deg)` → léger retour → repos (≈ 2 px en bout de mèche à l'écran)                                                                                                           |
-| `bitmojiHairFloat` | `#hair-back`  | 11 s, amplitude 0,25°, déphasée de 3,5 s (jamais synchrone avec l'avant)                                                                                                                            |
-| `bitmojiSmile`     | `#mouth`      | 16 s : long repos, puis la bouche s'élargit à peine (`scale(1.035, 1.02)`), tenue, relâchée                                                                                                         |
+| Animation          | Cible                             | Réglage                                                                                                                                                                                             |
+| ------------------ | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `bitmojiBlink`     | `.eye-open`                       | Cycle de 13,3 s, 3 clignements à intervalles irréguliers (5,7 s · 0,4 s, un double · 7,2 s). Fermeture ≈ 70 ms (ease-in), maintien ≈ 50 ms, réouverture ≈ 130 ms (ease-out) : `scaleY(0.1)` + fondu |
+| `bitmojiLid`       | `.eye-lid`                        | Même cycle : le trait d'œil fermé apparaît pendant la fermeture                                                                                                                                     |
+| `bitmojiHairFloat` | `#hair-front`                     | 9 s : repos → `skewX(0.55deg)` → léger retour → repos (≈ 2 px en bout de mèche à l'écran)                                                                                                           |
+| `bitmojiHairFloat` | `#hair-back`                      | 11 s, amplitude 0,25°, déphasée de 3,5 s (jamais synchrone avec l'avant)                                                                                                                            |
+| `bitmojiHeadTilt`  | `#face`, `#hat`, `#hand`, cheveux | Geste « bonjour », cycle de 18 s dès l'arrivée : la tête s'incline de 0,9° vers la main (1,3 → 2,3 s), tenue, retour à 6,3 s, puis 12 s d'immobilité                                                |
+| `bitmojiBrows`     | `#left-eyebrow`, `#right-eyebrow` | Même cycle : les sourcils se lèvent de 5 unités (≈ 2 px) de 1,6 à 2,1 s, tenus 1 s, redescendus à 3,8 s                                                                                             |
+| `bitmojiSmile`     | `#mouth`                          | Même cycle : la bouche s'élargit à peine (`scale(1.035, 1.02)`) de 1,6 à 2,5 s, tenue, relâchée à 5,9 s                                                                                             |
+
+Inclinaison de la tête : visage, chapeau et main pivotent autour de la base du cou
+(`transform-origin: 660px 540px`, `transform-box: view-box`). Les cheveux utilisent déjà
+`transform` pour leur balancement : ils suivent la tête avec les propriétés séparées `rotate` et
+`translate` (`--tilt-shift`, décalage calculé pour que la rotation autour de leurs racines
+équivaille à une rotation autour du cou). Sans les cheveux, un liseré clair apparaissait entre
+visage et cheveux ; testé propre jusqu'à 2°.
 
 Pivots : `.eye-open` porte son `transform-origin` en ligne, calculé à la génération pour que
 l'œil se referme **exactement** sur le trait `.eye-lid`. La bouche pivote au centre, les

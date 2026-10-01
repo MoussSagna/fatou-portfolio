@@ -32,9 +32,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </picture>
       </div>
 
-      <div className="mt-6 flex items-start justify-between gap-6 lg:mt-8">
+      <div className="mt-6 flex items-start justify-between gap-6 max-lg:flex-col max-lg:items-center max-lg:gap-5 max-lg:text-center lg:mt-8">
         <div>
-          <Eyebrow className="text-[0.6875rem] tracking-[0.28em]">{category}</Eyebrow>
+          <Eyebrow className="text-[0.6875rem] tracking-[0.28em] max-lg:justify-center">
+            {category}
+          </Eyebrow>
           <h3 className="mt-3 text-h3 lg:mt-4">
             {/* Stretched link: the whole card is clickable. */}
             <Link
@@ -44,14 +46,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
               {title}
             </Link>
           </h3>
-          <p className="mt-2 max-w-[15rem] text-base leading-relaxed text-ink-muted lg:text-[1.1875rem]">
+          <p className="mt-2 max-w-[15rem] text-base leading-relaxed text-ink-muted max-lg:mx-auto lg:text-[1.1875rem]">
             {description}
           </p>
         </div>
 
         <span
           aria-hidden="true"
-          className="mt-8 grid size-12 shrink-0 place-items-center rounded-full border border-ink/80 text-ink transition-colors duration-300 group-focus-within:border-ink group-focus-within:bg-ink group-focus-within:text-white group-hover:border-ink group-hover:bg-ink group-hover:text-white md:max-lg:hidden lg:mt-10 lg:size-16"
+          className="grid size-12 shrink-0 place-items-center rounded-full border border-ink/80 text-ink transition-colors duration-300 group-focus-within:border-ink group-focus-within:bg-ink group-focus-within:text-white group-hover:border-ink group-hover:bg-ink group-hover:text-white md:max-lg:hidden lg:mt-10 lg:size-16"
         >
           <ArrowUpRight
             className="size-5 transition-transform duration-300 ease-(--ease-out-soft) group-hover:translate-x-0.5 group-hover:-translate-y-0.5 lg:size-6"

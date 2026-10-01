@@ -13,12 +13,12 @@ export function SkillsSection() {
   return (
     <SectionShell id="competences" eyebrow="Mes compétences" className="lg:pt-16">
       <div className="mt-8 grid items-start gap-12 lg:mt-3 lg:grid-cols-[minmax(0,0.68fr)_minmax(0,1fr)] lg:gap-10">
-        <Reveal className="lg:pt-9">
+        <Reveal className="max-lg:text-center lg:pt-9">
           <h2 className="text-h2">
             De la recherche
             <br />à <span className="text-terracotta">l’interface</span>
           </h2>
-          <p className="mt-6 max-w-[26rem] text-lead text-ink-muted lg:mt-7 lg:max-w-[21.25rem] lg:text-[1.3125rem]">
+          <p className="mt-6 max-w-[26rem] text-lead text-ink-muted max-lg:mx-auto lg:mt-7 lg:max-w-[21.25rem] lg:text-[1.3125rem]">
             Une combinaison de recherche, de méthode et de sens du détail pour concevoir des
             expériences intuitives, esthétiques et impactantes.
           </p>
